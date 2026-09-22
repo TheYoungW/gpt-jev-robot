@@ -6,7 +6,9 @@
 
 ## 演示
 
-实际运行结果见 [examples/verified](examples/verified/)，包含抓取前后图片、约 4 倍速视频、真实 Jev 返回结果和验收报告。视频来自 MuJoCo 渲染，不是生成式视频。
+当前会话逐步看图操作的完整结果见 [examples/live_visual](examples/live_visual/)，包含抓取前后图片、约 4 倍速视频、39 次真实 Jev 决策、逐步视觉判断和独立验收报告。三个物体最终都落稳在盘内；黄色首次试提失败后重抓，黄色和红色运输/下降时曾滑落入盘，青色保持夹持至主动松爪。详见[实验记录与局限](examples/live_visual/run_notes.md)。这是一轮流程验证，不代表稳定抓取成功率。
+
+早期固定流程的对照结果保留在 [examples/verified](examples/verified/)。两组视频均来自 MuJoCo 渲染。
 
 **范围：仿真研究原型。** 当前演示用左臂搬运三个具有不同颜色的组合刚体，右臂待机；左右夹爪相机和中央相机构成三路观测，另有一个只用于录像的全景视角。夹取依赖执行器、接触和摩擦，没有物体瞬移、吸附或焊接约束。
 
@@ -23,38 +25,47 @@ export MUJOCO_GL=egl
 
 本工作区已建立 `.venv`。它不使用 Articore-SDK 的 Conda `at` 环境。
 
-先运行无网络的基线，确认物理环境：
+默认使用会话视觉 Agent 模式：
 
 ```bash
-jev-robot --run-dir runs/baseline demo --video
+jev-robot --run-dir runs/my_agent
 ```
 
-真实 Jev 模式：使用 TypeSafe 官方账户密钥，避免把密钥直接写进 shell 历史。
+这个命令只启动场景并返回相机图片。**接下来由当前会话中的 Agent 打开图片，判断目标、夹持位置、朝向和下一小步，提交给 Jev 选择；执行器完成一步后立即返回新图。** 没有自动颜色定位、预先算好的抓取点或固定八步流程。
 
 ```bash
-read -rs TYPESAFE_API_KEY
-export TYPESAFE_API_KEY
-jev-robot --run-dir runs/online demo --online --video
+jev-robot --run-dir runs/my_agent agent-step proposal.json
 ```
 
-每次使用新的 run 目录。`demo` 是 **Agent 编写的有限步骤实验流程**：Jev 对每一步实际调用，程序校验阶段前置条件。不应把它称为“无人值守持续运行的 GPT Agent”。无需网络的基线明确标为 `deterministic_baseline_no_jev`，接口失败不会偷偷降级成成功的 Jev 演示。
+提案必须引用最新 `observation_id`，声明实际查看的相机，并写入简短视觉判断和候选动作。协议见 [视觉 Agent 工作方式](docs/LIVE_AGENT.md)。Python 没有内置 GPT：需要当前会话中的 Agent 持续看图和发出新提案，单独运行命令不会自动替代这一过程。
+
+Jev 密钥通过 `TYPESAFE_API_KEY` 传入，或读取本地忽略的 `.secrets/typesafe.key`。密钥不进入日志。
+
+早期确定性流程只保留为显式基线，不是默认模式：
+
+```bash
+jev-robot --run-dir runs/legacy_baseline baseline-demo --video
+jev-robot --run-dir runs/legacy_online baseline-demo --online --video
+```
 
 运行输出：
 
 - `before_*.png` / `after_*.png`：抓取前后四个视角。
 - `observations/`：每次动作后的 RGB、深度和当时的相机内外参。
-- `episode_4x.mp4`：约 4.02 倍的**仿真时间**回放；不包含模型等待时暂停的仿真时间。
+- `episode_4x.mp4`：约 4 倍的**仿真时间**回放；本轮分段录制有效约 4.2 倍，不包含模型等待时暂停的仿真时间。
 - `decisions.jsonl`：候选动作、输入状态、Jev 原始选择、分布、置信度和门控结果。
 - `events.jsonl`：实际控制与接触反馈；`report.json`：独立验收结果。
+- `agent_steps.jsonl`：每份看图后的单步提案、Jev 选择、执行结果和新观测编号。
 - `decision_summary.md`：便于学习的任务级决策摘要、动作与结果，不是模型内部思维链。
 
 ## 在会话里由 Agent 操作
 
 ```bash
-jev-robot --run-dir runs/agent init
-jev-robot --run-dir runs/agent observe
-jev-robot --run-dir runs/agent perceive
-jev-robot --run-dir runs/agent act examples/move_up.json
+jev-robot --run-dir runs/agent agent-start
+jev-robot --run-dir runs/agent agent-observe
+jev-robot --run-dir runs/agent agent-step proposal.json
+# 完成后导出录像并进行独立最终验收。
+jev-robot --run-dir runs/agent agent-evaluate
 ```
 
 `act` 支持受限 JSON 动作，也支持 `op=decide`：Agent 提供当前观测状态和多个候选动作，Jev 选择后执行。必须引用当前 `simulation_time`，过期提案在联网前即被拒绝。完整格式见 [工具接口](docs/TOOLS.md)。`serve --video` 在同一进程中持续读取 JSONL，保留仿真、录像和会话状态。
@@ -65,7 +76,7 @@ MCP stdio 服务：
 jev-robot-mcp
 ```
 
-设置 `ROBOT_RUN_DIR` 可指定会话目录。提供 `observe`、`perceive`、`move_to`、`nudge`、`set_gripper`、`decide_next`、`verify_completion`。这些基础工具就是“肌肉层”；接入客户端后，Agent 可自由组合，Jev 接口在 Python 决策层。参见 [架构](docs/ARCHITECTURE.md) 与 [实验计划](docs/EXPERIMENTS.md)。
+设置 `ROBOT_RUN_DIR` 可指定会话目录。提供 `observe`、`agent_step`、`move_to`、`nudge`、`set_gripper`、`decide_next`、`verify_completion`。这些基础工具就是“肌肉层”；接入客户端后，Agent 可自由组合，Jev 接口在 Python 决策层。参见 [架构](docs/ARCHITECTURE.md) 与 [实验计划](docs/EXPERIMENTS.md)。
 
 ## 模型、标定与边界
 
@@ -73,7 +84,7 @@ jev-robot-mcp
 - 网格来自本地配套 SDK；生成的 MJCF 只保存在运行目录。
 - 仿真 TCP 是根据夹爪网格确定的指尖中心，**不同于原 URDF tool0**。详见 [标定说明](docs/CALIBRATION.md)。
 - 相机安装位置是暂定值；仿真内参和每次观测的外参是精确读取值，不代表实机标定已完成。
-- 视觉基线只适用于已知颜色、尺寸的演示物体；没有把仿真物体位姿冒充视觉感知。独立验收明确使用仿真真值。
+- 默认视觉 Agent 模式不运行颜色/几何物体定位，Agent 看 RGB 图片后作判断。旧颜色算法仅在显式 baseline 模式中运行；独立最终验收使用仿真真值，不提供给动作规划。
 - 保留关节限位并检查 IK、目标工作空间、跟踪误差和夹持接触；这里没有完整的碰撞规划、真实机器人安全认证或实机接口。
 
 ## 验证

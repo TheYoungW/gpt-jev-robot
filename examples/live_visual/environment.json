@@ -1,0 +1,14 @@
+{
+  "python": "3.13.9",
+  "packages": {
+    "mujoco": "3.13.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pillow": "12.3.0",
+    "httpx": "0.28.1",
+    "imageio": "2.37.4",
+    "imageio-ffmpeg": "0.6.0",
+    "mcp": "1.30.0",
+    "pytest": "9.1.1"
+  }
+}

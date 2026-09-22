@@ -3,8 +3,8 @@ import os
 import threading
 from mcp.server.fastmcp import FastMCP
 from .sim import RobotSim
-from .perception import detect_objects
 from .cli import respond
+from .agent_session import AgentSession
 
 mcp = FastMCP("yunyi-mujoco-muscles")
 _sim = None
@@ -19,14 +19,14 @@ def sim():
 
 @mcp.tool()
 def observe() -> dict:
-    """Save synchronized center/left-wrist/right-wrist RGB-D and calibration; meters, world frame."""
-    with _lock: return sim().observe()
+    """Get camera images and a fresh observation ID. The conversation agent must inspect images itself."""
+    with _lock: return AgentSession(sim()).observe()
 
 
 @mcp.tool()
-def perceive() -> dict:
-    """Known-color RGB-D baseline; explicitly limited to this demonstration's objects."""
-    with _lock: return detect_objects(sim())
+def agent_step(proposal: dict) -> dict:
+    """Execute one Jev choice from a visual proposal authored by the conversation agent. Requires latest observation_id, viewed_cameras, visual_assessment, decision_summary and candidates. Always returns fresh camera images for the next agent turn."""
+    with _lock: return AgentSession(sim()).step(proposal)
 
 
 @mcp.tool()

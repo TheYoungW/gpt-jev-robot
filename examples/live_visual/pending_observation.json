@@ -1,0 +1,33 @@
+{
+  "observation_id": "76d04743d64b",
+  "simulation_time": 54.372000000020485,
+  "images": {
+    "center": "observations/00054.372_feedback_76d04743d64b/center.png",
+    "l_wrist": "observations/00054.372_feedback_76d04743d64b/l_wrist.png",
+    "r_wrist": "observations/00054.372_feedback_76d04743d64b/r_wrist.png",
+    "overview": "observations/00054.372_feedback_76d04743d64b/overview.png"
+  },
+  "image_sha256": {
+    "center": "31b431b7e7e437fd2c1983ae3ce299841db1850c34b2811506227f29b817e566",
+    "l_wrist": "bb9af89751f909afef288cfc8ec6d4ffc0e1eeec6df32b6fe7c47d8d459ddbf7",
+    "r_wrist": "724750477632a3ac00c64906997a700d45625df8c53c7d6937720ad4b403ddef",
+    "overview": "01a38399e8462be0c4ce0d89ba916e98ca62756703a1f1924df4dd49332a4a71"
+  },
+  "robot_feedback": {
+    "tcp_world_m": {
+      "l": [
+        0.30122133591594835,
+        0.1980508589092777,
+        0.799996917533038
+      ],
+      "r": [
+        0.30019401030358045,
+        -0.2500040662552795,
+        0.7599998364388199
+      ]
+    },
+    "contact_pairs": [],
+    "contact_source": "simulated finger contact sensor"
+  },
+  "consumed": false
+}

@@ -1,0 +1,82 @@
+{
+  "source": "simulator_ground_truth_evaluation_only",
+  "objects": {
+    "coral": {
+      "position": [
+        0.38186583417864856,
+        -0.04150970922956726,
+        0.6618925099400946
+      ],
+      "in_tray": true,
+      "supported_by_tray": true,
+      "touching_gripper": false,
+      "speed": 1.1061821626261207e-10,
+      "angular_speed": 2.4787119423970093e-09,
+      "world_bounds": [
+        [
+          0.35826757227711914,
+          -0.061486858774771135,
+          0.6438592656724076
+        ],
+        [
+          0.4251598754628446,
+          -0.01924148403394319,
+          0.6799257542077817
+        ]
+      ]
+    },
+    "teal": {
+      "position": [
+        0.4000370498873069,
+        0.0494979720708794,
+        0.6619358597931166
+      ],
+      "in_tray": true,
+      "supported_by_tray": true,
+      "touching_gripper": false,
+      "speed": 5.589755742915045e-11,
+      "angular_speed": 2.4865325790910758e-09,
+      "world_bounds": [
+        [
+          0.36101266700870455,
+          0.03133548340992927,
+          0.6439138405450596
+        ],
+        [
+          0.4221743710545911,
+          0.07377985365905575,
+          0.6799578790411737
+        ]
+      ]
+    },
+    "gold": {
+      "position": [
+        0.32136829816139767,
+        -0.018952914337229492,
+        0.6618922446856379
+      ],
+      "in_tray": true,
+      "supported_by_tray": true,
+      "touching_gripper": false,
+      "speed": 1.2097127195823119e-10,
+      "angular_speed": 2.4280694332419603e-09,
+      "world_bounds": [
+        [
+          0.2834349267480727,
+          -0.03848081120981896,
+          0.643891713556022
+        ],
+        [
+          0.3602991069367736,
+          0.0005749825353599733,
+          0.6798927758152538
+        ]
+      ]
+    }
+  },
+  "success": true,
+  "mode": "live_conversation_agent_visual_judgment",
+  "simulation_time": 54.372000000020485,
+  "policy": "No detector, no fixed grasp sequence; each proposal authored after image inspection",
+  "video": "episode_4x.mp4"
+}

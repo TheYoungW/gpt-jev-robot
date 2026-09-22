@@ -14,9 +14,13 @@ def main():
     args = parser.parse_args()
     source = args.run_dir.resolve(); dest = args.destination.resolve()
     dest.mkdir(parents=True, exist_ok=True)
-    names = ["report.json", "decisions.jsonl", "decision_summary.md", "episode_4x.mp4", "agent_completion_proposal.json"]
+    names = ["report.json", "decisions.jsonl", "decision_summary.md", "episode_4x.mp4", "agent_completion_proposal.json", "agent_steps.jsonl", "pending_observation.json", "run_notes.md"]
     for name in names:
-        if (source / name).exists(): shutil.copyfile(source / name, dest / name)
+        if not (source / name).exists(): continue
+        if Path(name).suffix in (".json", ".jsonl", ".md"):
+            (dest / name).write_text((source / name).read_text().replace(str(source)+"/", ""))
+        else:
+            shutil.copyfile(source / name, dest / name)
     for png in source.glob("*.png"): shutil.copyfile(png, dest / png.name)
     for f in (source / "observations").rglob("*"):
         if f.suffix in (".png", ".json"):

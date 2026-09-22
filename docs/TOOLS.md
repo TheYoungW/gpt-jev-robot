@@ -1,5 +1,7 @@
 # Agent 工具接口
 
+默认入口与提案协议见 [LIVE_AGENT.md](LIVE_AGENT.md)。下文的 `act/decide` 是较低层的兼容接口；它不具备新的图片收据检查。默认 MCP `observe` 返回观测编号，使用 `agent_step` 提交看图后的下一步。
+
 从仓库根目录运行。CLI 通过运行目录中的 `state.npz` 保存和恢复机器人、物体、控制目标和仿真时间。
 
 ## 基础动作
