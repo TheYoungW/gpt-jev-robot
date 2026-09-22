@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from bessica_M1.3; product axes/limits/TCP are intentional overrides. -->
+<robot name="yunyi_v1_0">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.000999999248702761 -1.83550424751351E-09 0.146364218756861" rpy="0 0 0" />
+      <mass value="3.56107119617945" />
+      <inertia ixx="0.133996712837783" ixy="-3.54155579992734E-11" ixz="-5.04451217368818E-11" iyy="0.127853391457561" iyz="-3.55598587025315E-11" izz="0.0999783047222016" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="l-base-link">
+    <inertial>
+      <origin xyz="-1.95621951724376E-05 0.0255462660312101 0.00616010005021406" rpy="0 0 0" />
+      <mass value="0.64674628681846" />
+      <inertia ixx="0.000402983320026701" ixy="-1.17187838288309E-08" ixz="-2.60905644555332E-09" iyy="0.000686134944853457" iyz="-6.68964980663153E-05" izz="0.00045407857663488" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l-base-joint" type="fixed">
+    <origin xyz="0.00105000000000442 0.044673068989973 1.01542723086331" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="l-base-link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="l-link1">
+    <inertial>
+      <origin xyz="0.00223360232084524 0.0543009835655963 0.0145262521170118" rpy="0 0 0" />
+      <mass value="0.486097998317314" />
+      <inertia ixx="0.000518891929852716" ixy="1.00974467851841E-07" ixz="1.7440457772901E-07" iyy="0.000343137947001226" iyz="-1.58637120786692E-06" izz="0.00031950041800837" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l-joint1" type="revolute">
+    <origin xyz="0 0.059598 0.015969" rpy="0 0 0" />
+    <parent link="l-base-link" />
+    <child link="l-link1" />
+    <axis xyz="0 0.96592586715013007 0.25881889260691426" />
+    <limit lower="-2.745" upper="2.745" effort="40" velocity="16" />
+  </joint>
+  <link name="l-link2">
+    <inertial>
+      <origin xyz="0.011293019356886 0.00810561029271017 -0.075161248618428" rpy="0 0 0" />
+      <mass value="0.607836497793568" />
+      <inertia ixx="0.000263266475869967" ixy="9.97211743055112E-07" ixz="4.2889759478869E-07" iyy="0.000240279165373824" iyz="-3.32209911921571E-06" izz="0.000256131711552836" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l-joint2" type="revolute">
+    <origin xyz="-5E-05 0.06549 0.017548" rpy="0 0 0" />
+    <parent link="l-link1" />
+    <child link="l-link2" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3489" upper="2.2678" effort="40" velocity="16" />
+  </joint>
+  <link name="l-link3">
+    <inertial>
+      <origin xyz="0.00593848148318168 -0.00106126579574564 -0.109906905897678" rpy="0 0 0" />
+      <mass value="0.57943677359336" />
+      <inertia ixx="0.0004211530262009" ixy="3.35719992159405E-07" ixz="-1.32203834042801E-05" iyy="0.000466838000735787" iyz="-1.14901005593523E-06" izz="0.000197411121398285" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l-joint3" type="revolute">
+    <origin xyz="0.0043414 0.008 -0.1195" rpy="0 0 0" />
+    <parent link="l-link2" />
+    <child link="l-link3" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-2.5294" upper="2.5294" effort="27" velocity="5" />
+  </joint>
+  <link name="l-link4">
+    <inertial>
+      <origin xyz="-0.00610254551349306 -0.00201934108374865 -0.0331848660245111" rpy="0 0 0" />
+      <mass value="0.112953002423593" />
+      <inertia ixx="5.12937768366745E-05" ixy="1.4543459150224E-07" ixz="5.87799654862338E-06" iyy="5.76857797859487E-05" iyz="5.29071548824356E-07" izz="2.00455415433637E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l-joint4" type="revolute">
+    <origin xyz="0.0082 0 -0.13375" rpy="0 0 0" />
+    <parent link="l-link3" />
+    <child link="l-link4" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.1744" upper="2.2678" effort="27" velocity="5" />
+  </joint>
+  <link name="l-link5">
+    <inertial>
+      <origin xyz="-4.08631178076555E-05 -0.00060815237865966 -0.059568427772497" rpy="0 0 0" />
+      <mass value="0.707370386459651" />
+      <inertia ixx="0.000281242373489498" ixy="3.66315278886839E-07" ixz="5.92663823078124E-07" iyy="0.000324023332220045" iyz="-2.46884026581289E-07" izz="0.000235342844083135" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link5.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.890196078431372 0.890196078431372 0.913725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l-joint5" type="revolute">
+    <origin xyz="-0.0082 0.000875 -0.064" rpy="0 0 0" />
+    <parent link="l-link4" />
+    <child link="l-link5" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.0933" upper="2.0933" effort="7" velocity="20" />
+  </joint>
+  <link name="l-link6">
+    <inertial>
+      <origin xyz="-0.00124021121425022 0.000102030009410975 2.17965486548621E-07" rpy="0 0 0" />
+      <mass value="0.320900903059042" />
+      <inertia ixx="0.000138345011073375" ixy="-8.93982615915924E-09" ixz="-1.319557350212E-09" iyy="9.30209080328958E-05" iyz="-2.56239744998499E-08" izz="0.000106843444156536" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link6.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l-joint6" type="revolute">
+    <origin xyz="0 0 -0.155" rpy="0 0 0" />
+    <parent link="l-link5" />
+    <child link="l-link6" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.785" upper="0.785" effort="7" velocity="20" />
+  </joint>
+  <link name="l-link7">
+    <inertial>
+      <origin xyz="-0.000139431260921055 1.25864096367501E-07 -0.0729973583168591" rpy="0 0 0" />
+      <mass value="0.393429024276562" />
+      <inertia ixx="0.000183223913344015" ixy="-4.07535180276811E-07" ixz="-2.07496058880196E-07" iyy="0.000109889658700309" iyz="2.95287341286751E-09" izz="0.000215657907466964" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link7.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_link7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l-joint7" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="l-link6" />
+    <child link="l-link7" />
+    <axis xyz="1 0 0" />
+    <limit lower="-1.3956" upper="1.3956" effort="7" velocity="20" />
+  </joint>
+  <link name="l-link8">
+    <inertial>
+      <origin xyz="0.000382813619687423 0.346002812636801 0.0449197877637941" rpy="0 0 0" />
+      <mass value="0.0290810459451504" />
+      <inertia ixx="6.73188537163971E-06" ixy="-4.24550686568903E-13" ixz="-2.49929021940714E-11" iyy="8.29422781792005E-06" iyz="-1.28958757476799E-06" izz="5.44783810286411E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_tool_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_tool_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l-joint8" type="prismatic">
+    <origin xyz="-0.0023828 -0.40777 -0.18025" rpy="0 0 0" />
+    <parent link="l-link7" />
+    <child link="l-link8" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.05" upper="0" effort="5" velocity="10" />
+  </joint>
+  <link name="l-link9">
+    <inertial>
+      <origin xyz="0.000382785726591912 0.368539041340821 0.0449197877637945" rpy="0 0 0" />
+      <mass value="0.0290810459451503" />
+      <inertia ixx="6.73188537163968E-06" ixy="-4.2455068685141E-13" ixz="2.49929022051278E-11" iyy="8.29422781792E-06" iyz="1.289587574768E-06" izz="5.44783810286409E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_tool_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/l_tool_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l-joint9" type="prismatic">
+    <origin xyz="-0.0023828 -0.30677 -0.18025" rpy="0 0 0" />
+    <parent link="l-link7" />
+    <child link="l-link9" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="0.05" effort="5" velocity="10" />
+  </joint>
+  <link name="r-base-link">
+    <inertial>
+      <origin xyz="1.95621951713056E-05 -0.0255462660312129 0.00616010005021361" rpy="0 0 0" />
+      <mass value="0.64674628681846" />
+      <inertia ixx="0.0004029833200267" ixy="-1.17187838291378E-08" ixz="2.60905644546654E-09" iyy="0.000686134944853456" iyz="6.6896498066315E-05" izz="0.000454078576634879" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r-base-joint" type="fixed">
+    <origin xyz="0.00104999999999497 -0.0446730689899729 1.01542723086331" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="r-base-link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="r-link1">
+    <inertial>
+      <origin xyz="0.000680312668551351 -0.0534824777093734 0.014244502731414" rpy="0 0 0" />
+      <mass value="0.548482032822219" />
+      <inertia ixx="0.000620360523184661" ixy="1.27320477888725E-06" ixz="5.54029487972633E-08" iyy="0.000389148789820143" iyz="-1.40748349431719E-06" izz="0.000375553884658732" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r-joint1" type="revolute">
+    <origin xyz="0 -0.0595976234820355 0.0159691350828256" rpy="0 0 0" />
+    <parent link="r-base-link" />
+    <child link="r-link1" />
+    <axis xyz="0 0.96592582628906676 -0.25881904510252696" />
+    <limit lower="-2.745" upper="2.745" effort="40" velocity="16" />
+  </joint>
+  <link name="r-link2">
+    <inertial>
+      <origin xyz="0.0109102194567129 -0.0082394523019873 -0.0751612620480779" rpy="0 0 0" />
+      <mass value="0.607836262110497" />
+      <inertia ixx="0.000263266317943445" ixy="-1.06750357538932E-06" ixz="4.2888960380992E-07" iyy="0.000240279114798061" iyz="2.96492061867639E-06" izz="0.000256131631663003" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r-joint2" type="revolute">
+    <origin xyz="-4.99999999949084E-05 -0.0654897710223989 0.0175479312579507" rpy="0 0 0" />
+    <parent link="r-link1" />
+    <child link="r-link2" />
+    <axis xyz="1 0 0" />
+    <limit lower="-2.2678" upper="0.3489" effort="40" velocity="16" />
+  </joint>
+  <link name="r-link3">
+    <inertial>
+      <origin xyz="0.00593605975424075 0.00110447075255668 -0.110341344610117" rpy="0 0 0" />
+      <mass value="0.57856222431834" />
+      <inertia ixx="0.000416786424394157" ixy="-3.07874106610115E-07" ixz="-1.36458123967443E-05" iyy="0.000462235400847049" iyz="1.19765079310785E-06" izz="0.000197162801678215" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r-joint3" type="revolute">
+    <origin xyz="0.00395860016342071 -0.00799999999999931 -0.1195" rpy="0 0 0" />
+    <parent link="r-link2" />
+    <child link="r-link3" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-2.5294" upper="2.5294" effort="27" velocity="5" />
+  </joint>
+  <link name="r-link4">
+    <inertial>
+      <origin xyz="-0.00610255228430757 0.00202089081431475 -0.0331848736918078" rpy="0 0 0" />
+      <mass value="0.112952951283679" />
+      <inertia ixx="5.12940158472547E-05" ixy="-1.45432498118358E-07" ixz="5.8780227367345E-06" iyy="5.76860180894472E-05" iyz="-5.29127201948879E-07" izz="2.00455304108755E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r-joint4" type="revolute">
+    <origin xyz="0.0082 0 -0.134" rpy="0 0 0" />
+    <parent link="r-link3" />
+    <child link="r-link4" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.1744" upper="2.2678" effort="27" velocity="5" />
+  </joint>
+  <link name="r-link5">
+    <inertial>
+      <origin xyz="-0.000158843368204124 0.000493615134763731 -0.0595601888985068" rpy="0 0 0" />
+      <mass value="0.707309229997964" />
+      <inertia ixx="0.00028104980885741" ixy="-4.22473207945767E-08" ixz="6.43905065571042E-07" iyy="0.000323837064816987" iyz="4.84062420051079E-07" izz="0.00023533538318042" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link5.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.890196078431372 0.890196078431372 0.913725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r-joint5" type="revolute">
+    <origin xyz="-0.00820000000001359 -0.000874999999993659 -0.0639999999999995" rpy="0 0 0" />
+    <parent link="r-link4" />
+    <child link="r-link5" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.0933" upper="2.0933" effort="7" velocity="20" />
+  </joint>
+  <link name="r-link6">
+    <inertial>
+      <origin xyz="-0.00124383756768642 0.000161938998952671 1.39824288758472E-06" rpy="0 0 0" />
+      <mass value="0.320941370383601" />
+      <inertia ixx="0.000138384238824509" ixy="-2.7748213654657E-07" ixz="-2.55796079793345E-09" iyy="9.30253885407872E-05" iyz="-1.92961735640939E-08" izz="0.000106887799481957" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link6.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r-joint6" type="revolute">
+    <origin xyz="0 0 -0.155000000000001" rpy="0 0 0" />
+    <parent link="r-link5" />
+    <child link="r-link6" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.785" upper="0.785" effort="7" velocity="20" />
+  </joint>
+  <link name="r-link7">
+    <inertial>
+      <origin xyz="-0.000139431260932315 1.25864120625874E-07 -0.0729973583168942" rpy="0 0 0" />
+      <mass value="0.393429024277489" />
+      <inertia ixx="0.000183223913344295" ixy="-4.07535180367638E-07" ixz="-2.07496058772897E-07" iyy="0.000109889658700514" iyz="2.95287327444052E-09" izz="0.000215657907467143" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link7.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_link7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r-joint7" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="r-link6" />
+    <child link="r-link7" />
+    <axis xyz="1 0 0" />
+    <limit lower="-1.3956" upper="1.3956" effort="7" velocity="20" />
+  </joint>
+  <link name="r-link8">
+    <inertial>
+      <origin xyz="-0.000382785726589782 -0.36853904134082 0.0444197877638011" rpy="0 0 0" />
+      <mass value="0.0290810459451501" />
+      <inertia ixx="6.73188537163965E-06" ixy="-4.2455068251996E-13" ixz="-2.4992902204894E-11" iyy="8.29422781791998E-06" iyz="-1.28958757476799E-06" izz="5.44783810286406E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_tool_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_tool_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r-joint8" type="prismatic">
+    <origin xyz="-0.0016172 0.30677 -0.17975" rpy="0 0 0" />
+    <parent link="r-link7" />
+    <child link="r-link8" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.05" upper="0" effort="5" velocity="10" />
+  </joint>
+  <link name="r-link9">
+    <inertial>
+      <origin xyz="-0.000382813619688352 -0.3460028126368 0.0444197877638013" rpy="0 0 0" />
+      <mass value="0.0290810459451503" />
+      <inertia ixx="6.73188537163964E-06" ixy="-4.24550687722559E-13" ixz="2.49929021818547E-11" iyy="8.29422781791998E-06" iyz="1.289587574768E-06" izz="5.44783810286411E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_tool_link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../meshes/bessica_M1.3/r_tool_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r-joint9" type="prismatic">
+    <origin xyz="-0.0016172 0.40777 -0.17975" rpy="0 0 0" />
+    <parent link="r-link7" />
+    <child link="r-link9" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="0.05" effort="5" velocity="10" />
+  </joint>
+  <link name="l-tool0" />
+  <joint name="l-tool0-fixed-joint" type="fixed">
+    <origin xyz="-0.0023828 -0.35726999999999998 -0.18024999999999999" rpy="0 0 0" />
+    <parent link="l-link7" />
+    <child link="l-tool0" />
+  </joint>
+  <link name="r-tool0" />
+  <joint name="r-tool0-fixed-joint" type="fixed">
+    <origin xyz="-0.0016172000000000001 0.35726999999999998 -0.17974999999999999" rpy="0 0 0" />
+    <parent link="r-link7" />
+    <child link="r-tool0" />
+  </joint>
+</robot>

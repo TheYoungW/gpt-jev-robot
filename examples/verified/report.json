@@ -1,0 +1,92 @@
+{
+  "mode": "live_jev_agent_authored_playbook",
+  "success": true,
+  "objects_completed": [
+    "coral",
+    "teal",
+    "gold"
+  ],
+  "policy": "agent-authored finite playbook; no GPT API calls",
+  "video_speed": 4.02,
+  "perception": "RGB color thresholds + calibrated depth; known colors and core height",
+  "physics": "actuated URDF joints and frictional contacts; no weld, mocap attachment or object teleport",
+  "source": "simulator_ground_truth_evaluation_only",
+  "objects": {
+    "coral": {
+      "position": [
+        0.28967921179538175,
+        -0.009763761058794396,
+        0.6618925099401273
+      ],
+      "in_tray": true,
+      "supported_by_tray": true,
+      "touching_gripper": false,
+      "speed": 9.298991758368142e-11,
+      "angular_speed": 2.961592726051524e-09,
+      "world_bounds": [
+        [
+          0.26754001823221824,
+          -0.027916600566872177,
+          0.6438592656678688
+        ],
+        [
+          0.3336388106971034,
+          0.010394945918198319,
+          0.6799257542123858
+        ]
+      ]
+    },
+    "teal": {
+      "position": [
+        0.40211114211377,
+        -0.00631768760496041,
+        0.6619358597931145
+      ],
+      "in_tray": true,
+      "supported_by_tray": true,
+      "touching_gripper": false,
+      "speed": 6.71764391669897e-11,
+      "angular_speed": 1.599453103066073e-09,
+      "world_bounds": [
+        [
+          0.36308891704497553,
+          -0.024453048998787762,
+          0.6439138405448718
+        ],
+        [
+          0.4242263476591751,
+          0.017916052712989003,
+          0.6799578790413573
+        ]
+      ]
+    },
+    "gold": {
+      "position": [
+        0.3434687639507216,
+        -0.07218497425242965,
+        0.6618922446856397
+      ],
+      "in_tray": true,
+      "supported_by_tray": true,
+      "touching_gripper": false,
+      "speed": 1.0881224574803566e-10,
+      "angular_speed": 2.8301264112982637e-10,
+      "world_bounds": [
+        [
+          0.3054687677979142,
+          -0.09019692807307604,
+          0.6438917135559988
+        ],
+        [
+          0.38246875995556007,
+          -0.05417302043178325,
+          0.6798927758152805
+        ]
+      ]
+    }
+  },
+  "simulation_time": 51.78000000001732,
+  "joint_limit_max_violation_rad_or_m": 1.3672069938968016e-21,
+  "video_frames": 381,
+  "agent_final_decision": "finish"
+}

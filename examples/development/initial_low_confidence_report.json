@@ -1,0 +1,11 @@
+{
+  "mode": "live_jev_agent_authored_playbook",
+  "success": false,
+  "objects_completed": [],
+  "policy": "agent-authored finite playbook; no GPT API calls",
+  "video_speed": 4.02,
+  "perception": "RGB color thresholds + calibrated depth; known colors and core height",
+  "physics": "actuated URDF joints and frictional contacts; no weld, mocap attachment or object teleport",
+  "error": "Jev requested re-observation; playbook yields to interactive agent without guessing",
+  "video_frames": 0
+}
