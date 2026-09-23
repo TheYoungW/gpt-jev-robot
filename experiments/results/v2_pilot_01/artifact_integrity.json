@@ -1,10 +1,10 @@
 {
-  "exported_wall_time": 1790135828.6103983,
+  "exported_wall_time": 1790135863.5223846,
   "files": {
     "physical_scores.json": "02f6887092aea2676e4525b253cb4ba904a24c5689bc415989bd17385031acab",
     "environment.json": "f7d49bd3cb178a6c38ea68897d7edc2e97fba099b57eee434cde21e5ded874ec",
     "manifest.json": "008210510e0f4a4d05615e24fb688f57d8e2c59aab9c5b9d626ebc485fd738a0",
-    "format_comparison.pdf": "2b0f2630d849d494060be3c248afa36a683e9dfc68281b243044db06e066fe00",
+    "format_comparison.pdf": "f39aa26790300352c23c805dbf1dc001aa499e3e70432eb83855c3bbb2fc8a45",
     "format_comparison.png": "ddde3a3a7bdf60ea3d87ebfd2ee5a3c27d879559e18a75f0436be8ef3dc5f6f3",
     "api_results.jsonl": "de703cd53b8373e40eaff89064bced40733a4dbd72cddd8e9c0f9cd52ebe16be",
     "reproduction_verification.json": "f303cab353721da5890bb5edd255689817e1a449e72c782b3164e18b685c7e3f",
@@ -13,7 +13,7 @@
     "summary.json": "0e2d0141610ceb012d85ff766fadb4bb64ba865ea8d8bc141e0262588a0ac675",
     "setup_revealed_after_decisions.json": "79a5cc3c4944c202ed431eae401d6b765a3ed62d55760bd29ce123b4d228c359",
     "request_plan.json": "6eed5649d92efb80844f1d155f441f9f2275c9de491e3d3fcbbb7c04d8b13401",
-    "per_state.csv": "806ddda319713f2b63ab8d8fca79e3bf1cd1b3ef8c95a6f7c98149ed2b58e4bc",
+    "per_state.csv": "44c5b9a036c259ecbf0c4fa11f64dd54e7eb626e652ac1f4d9ca36bb958b6bcf",
     "preregistered_plan.md": "dea785ddf779375dd67ad261280161baf3058051b44a8c846fc09bf95a7a7dee",
     "annotations/R06.json": "d0b005ecfdec941786b5f839383e824ed5266aad60ef98057450cf6006d1e17d",
     "annotations/R04.json": "df036b0d63d18e5680fd6f523700eb3b93c8eca7bcf1d779ff7ef499711e2e3c",

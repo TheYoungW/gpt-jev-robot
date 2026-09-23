@@ -46,7 +46,7 @@ def main():
     summary = json.loads((SOURCE/"summary.json").read_text())
     with (DEST/"per_state.csv").open("w") as f:
         columns = ["case", "cluster", "objective", "A", "B", "C", "C_choice", "C_accepted", "C_gate"]
-        writer = csv.DictWriter(f, fieldnames=columns); writer.writeheader()
+        writer = csv.DictWriter(f, fieldnames=columns, lineterminator="\n"); writer.writeheader()
         for row in summary["table"]: writer.writerow({k: row[k] for k in columns})
     versions = {p: importlib.metadata.version(p) for p in ("mujoco", "numpy", "scipy", "pydantic", "httpx", "matplotlib")}
     (DEST/"environment.json").write_text(json.dumps(versions, indent=2))
