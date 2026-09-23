@@ -12,10 +12,12 @@ dependencies = ["mujoco>=3.3,<4", "numpy>=1.26", "scipy>=1.11", "pillow>=10", "i
 [project.optional-dependencies]
 dev = ["pytest>=8"]
 analysis = ["matplotlib>=3.8,<4"]
+calibration = ["opencv-contrib-python-headless>=4.10,<5", "reportlab>=4.2,<5", "pypdf>=5,<7"]
 
 [project.scripts]
 jev-robot = "gpt_jev_robot.cli:main"
 jev-robot-mcp = "gpt_jev_robot.mcp_server:main"
+jev-calibrate = "gpt_jev_robot.handeye.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

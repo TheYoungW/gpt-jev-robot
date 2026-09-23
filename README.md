@@ -4,6 +4,12 @@
 
 这个仓库不调用 GPT API。Agent 在会话中读取图像、给出目标和候选动作；Jev 通过 TypeSafe API 回答明确的“下一步选哪个动作”；Python 负责执行、限位检查、图像记录和结果验证。
 
+## D405 标定
+
+[下载 A4 标定板 PDF](calibration/boards/d405_A4/d405_charuco_A4.pdf)，打印选择 **A4、100% 实际大小**，打印后测量横纵 100 mm 校验尺。
+
+[Python 标定工具与接入说明](docs/D405_HAND_EYE.md)支持腕部相机和固定相机，包含采样检查、手眼解算、留出验证及[驱动模板](examples/handeye/driver_adapter_template.py)。当前仅完成离线软件与合成图像验证，D405 和机器人驱动待接入，没有实机标定结果。
+
 ## 演示
 
 **机械反馈对照：** [24 状态、144 次真实 Jev 判断](experiments/results/telemetry_pilot_01/REPORT.md)中，现有视觉/接触反馈组正确率为 63.9%，新增关节位置、速度、受力与夹爪间隙摘要后为 62.5%，未显示提升，输入 token 约为原来的 3.40 倍。这是离线夹持判断，不是抓取成功率；[采样功能](docs/ROBOT_TELEMETRY.md)保留为可选研究入口。

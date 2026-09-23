@@ -1,0 +1,51 @@
+{
+  "data_origin": "synthetic",
+  "opencv_version": "4.14.0",
+  "experiments": [
+    {
+      "data_origin": "synthetic",
+      "mount": "eye-in-hand",
+      "captures": 24,
+      "accepted_captures": 24,
+      "result_status": "passed_validation",
+      "known_transform_error": {
+        "translation_m": 0.00035175474773083034,
+        "rotation_deg": 0.13450062289928957
+      },
+      "heldout": {
+        "count": 6,
+        "translation_rms_m": 0.00028099918744167827,
+        "translation_max_m": 0.0005187158623545919,
+        "rotation_rms_deg": 0.15615807606820134,
+        "rotation_max_deg": 0.2617278028505219
+      },
+      "note": "Tests rendered board detection + PnP + hand-eye direction; no physical camera/robot was used."
+    },
+    {
+      "data_origin": "synthetic",
+      "mount": "eye-to-hand",
+      "captures": 24,
+      "accepted_captures": 24,
+      "result_status": "passed_validation",
+      "known_transform_error": {
+        "translation_m": 0.0003517547477302476,
+        "rotation_deg": 0.13450062289928758
+      },
+      "heldout": {
+        "count": 6,
+        "translation_rms_m": 0.00028099918744188703,
+        "translation_max_m": 0.0005187158623550602,
+        "rotation_rms_deg": 0.1561580760681831,
+        "rotation_max_deg": 0.261727802850494
+      },
+      "note": "Tests rendered board detection + PnP + hand-eye direction; no physical camera/robot was used."
+    }
+  ],
+  "limitations": "Software verification only. Both modes use the same rendered views with different transform chains. No D405, physical robot or printed paper was measured.",
+  "test_suite": {
+    "command": "env -u PYTHONPATH PYTHONNOUSERSITE=1 .venv/bin/pytest -q",
+    "passed": 76,
+    "duration_s": 10.45,
+    "pdf_checks": "A4 media box; PDF rasterization with Poppler; 54 ChArUco corners and 35 marker IDs; metric image scale within 0.2%."
+  }
+}

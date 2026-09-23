@@ -1,0 +1,27 @@
+{
+  "camera_id": "SYNTHETIC_NOT_A_D405",
+  "stream_id": "synthetic_gray_960x720",
+  "optical_frame": "synthetic_camera_optical",
+  "width": 960,
+  "height": 720,
+  "K": [
+    [
+      600.0,
+      0.0,
+      479.5
+    ],
+    [
+      0.0,
+      600.0,
+      359.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "distortion_model": "none",
+  "distortion": [],
+  "provenance": "Synthetic pinhole intrinsics for software testing only"
+}

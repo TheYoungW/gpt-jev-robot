@@ -1,0 +1,9 @@
+{
+  "name": "d405_charuco_a4_25mm_v1",
+  "squares_x": 7,
+  "squares_y": 10,
+  "square_m": 0.025,
+  "marker_m": 0.018,
+  "dictionary": "DICT_4X4_50",
+  "legacy_pattern": false
+}
