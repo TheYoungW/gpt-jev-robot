@@ -1,0 +1,12 @@
+{
+  "case_id": "C02",
+  "annotated_wall_time": 1790138285.343286,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "Yellow remains large and centered between the finger sides before and after the upward motion. Its profile and position relative to the fingers change little while the teal background object becomes smaller. The central view partly occludes the exact pad contact."
+}

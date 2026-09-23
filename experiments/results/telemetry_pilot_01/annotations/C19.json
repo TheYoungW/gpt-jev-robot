@@ -1,0 +1,12 @@
+{
+  "case_id": "C19",
+  "annotated_wall_time": 1790138285.3438282,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "Yellow stays between the foreground fingers with a similar broad profile during the further rise. Its screen position changes slightly; the red and teal objects in the background become smaller."
+}

@@ -1,0 +1,20 @@
+{
+  "verified_wall_time": 1790138669.8073235,
+  "mode": "offline same-machine reproduction; no additional API calls",
+  "physical_verification_states": 24,
+  "checks": {
+    "labels.json": {
+      "original_sha256": "0eb7ebc8f4ed05ea0b5d6a24e6b83572cd877705921583a81f3afafe52dc813c",
+      "reproduced_sha256": "0eb7ebc8f4ed05ea0b5d6a24e6b83572cd877705921583a81f3afafe52dc813c",
+      "all_fields_equal": true
+    },
+    "summary.json": {
+      "original_sha256": "0d4e7d53a471c5afdbcf9fa60d9bfc3429ae99127b72e8bc35229847b8fe9819",
+      "reproduced_sha256": "0d4e7d53a471c5afdbcf9fa60d9bfc3429ae99127b72e8bc35229847b8fe9819",
+      "all_fields_equal": true
+    }
+  },
+  "RGB_hashes_verified": 96,
+  "frozen_inputs_and_robot_traces_verified": true,
+  "tests_passed": 56
+}

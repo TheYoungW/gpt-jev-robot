@@ -1,0 +1,12 @@
+{
+  "case_id": "C04",
+  "annotated_wall_time": 1790138285.3433762,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "After lateral motion over the tray, yellow has rotated markedly from a broad horizontal profile to an oblique narrow profile. It is still projected between the foreground finger tips. The central view shows it close to the gripper over the tray, but cannot resolve its support or contact."
+}

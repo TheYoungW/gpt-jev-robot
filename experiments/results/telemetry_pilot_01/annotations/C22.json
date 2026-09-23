@@ -1,0 +1,12 @@
+{
+  "case_id": "C22",
+  "annotated_wall_time": 1790138285.343923,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "Yellow remains large and near the fingers after rising, but its broad face has tilted slightly relative to the initially more level face. Background teal recedes. The object stays projected across the finger gap; its lower portion is cropped."
+}

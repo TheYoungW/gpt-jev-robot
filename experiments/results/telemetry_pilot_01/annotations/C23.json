@@ -1,0 +1,12 @@
+{
+  "case_id": "C23",
+  "annotated_wall_time": 1790138285.3439505,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "Yellow remains large in the foreground but rotates strongly relative to the fingers during the higher move; its broad edge becomes diagonal and its right rounded lobe becomes prominent. The target still overlaps the finger gap in projection."
+}

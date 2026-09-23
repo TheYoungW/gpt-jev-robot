@@ -1,0 +1,12 @@
+{
+  "case_id": "C12",
+  "annotated_wall_time": 1790138285.343622,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "After moving over the tray, yellow is still large and near the foreground fingers, but it has rotated from its previous broad face to an oblique face. The lower object is cropped. The central image cannot clearly separate yellow from the gripper or establish support."
+}

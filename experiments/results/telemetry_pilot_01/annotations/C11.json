@@ -1,0 +1,12 @@
+{
+  "case_id": "C11",
+  "annotated_wall_time": 1790138285.3435905,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "Yellow remains close in the wrist view and mostly between the fingers while the background recedes. There is a small profile shift; the target bottom and pad interfaces are cropped, so complete contact geometry is not visible."
+}

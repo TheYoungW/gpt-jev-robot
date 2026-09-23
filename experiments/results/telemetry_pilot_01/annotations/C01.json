@@ -1,0 +1,12 @@
+{
+  "case_id": "C01",
+  "annotated_wall_time": 1790138285.3431826,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "After the upward motion, yellow is visibly smaller and farther toward the center of the wrist image; closed finger tips remain in the foreground. In the central view yellow remains at the tabletop location. Its outline did not stay fixed relative to the fingers."
+}

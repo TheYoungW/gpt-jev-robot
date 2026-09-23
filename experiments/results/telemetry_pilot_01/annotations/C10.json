@@ -1,0 +1,12 @@
+{
+  "case_id": "C10",
+  "annotated_wall_time": 1790138285.3435616,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "Yellow stays large at the lower wrist edge during the rise. Its broad top face remains between the finger sides, with only a small lateral/profile change, while teal in the background recedes. The target is partially clipped by the lower image boundary."
+}

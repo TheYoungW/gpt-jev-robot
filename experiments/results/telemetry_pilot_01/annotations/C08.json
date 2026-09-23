@@ -1,0 +1,12 @@
+{
+  "case_id": "C08",
+  "annotated_wall_time": 1790138285.3435035,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "Yellow changes from a broad centered profile to a rotated narrow shape displaced toward the outside of the right finger in the wrist image. In the central image it appears separated to the side of the gripper over the tray. Exact contact is not resolved."
+}

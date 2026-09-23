@@ -58,3 +58,26 @@ def test_paired_inputs_only_differ_by_sensor_data_and_keep_identical_options():
         assert a['candidates']==c['candidates'] and a['mapping']==c['mapping']
         assert set(a['mapping'].values())=={'retained','not_retained','observe'}
     assert frozen==original
+
+
+def test_analysis_serializes_cluster_counts_and_scores_abstention(tmp_path):
+    b=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/benchmark_telemetry.py'))
+    labels=[{'case':'C01','episode':'E01','label':'retained'},
+            {'case':'C02','episode':'E02','label':'not_retained'}]
+    (tmp_path/'labels.json').write_text(json.dumps({'labels':labels}))
+    rows=[]
+    for case in labels:
+        for g in ('A','B'):
+            for repeat in range(3):
+                choice='observe' if g=='A' else case['label']
+                rows.append({'case':case['case'],'group':g,'status':'ok','raw_choice':choice,
+                    'accepted_choice':choice,'low_confidence':False,'started_wall_time':0,
+                    'completed_wall_time':1,'decision':{'usage':{'input_tokens':1},'latency_ms':1}})
+    namespace=b['analyze'].__globals__
+    namespace['RUN']=tmp_path;namespace['complete_results']=lambda:rows
+    b['analyze']()
+    result=json.loads((tmp_path/'summary.json').read_text())
+    assert result['cluster_sign_test']['B_wins']==2
+    assert result['groups']['A']['accuracy']==0
+    assert result['groups']['B']['accuracy']==1
+    assert result['B_minus_A']==1

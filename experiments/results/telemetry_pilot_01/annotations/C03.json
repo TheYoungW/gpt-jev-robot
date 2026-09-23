@@ -1,0 +1,12 @@
+{
+  "case_id": "C03",
+  "annotated_wall_time": 1790138285.3433387,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "Yellow stays broad and centered in the lower wrist view during the rise to the higher pose; the teal/red background recedes. Its orientation is nearly unchanged. Exact contact surfaces are partly outside the lower edge."
+}

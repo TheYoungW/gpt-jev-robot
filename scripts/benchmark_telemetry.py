@@ -255,7 +255,7 @@ def analyze():
     differences=[d for d in differences if len(d)]
     rng=np.random.default_rng(20260924)
     boot=[float(np.concatenate([differences[i] for i in rng.integers(0,len(differences),len(differences))]).mean()) for _ in range(10000)] if differences else []
-    wins=sum(d.mean()>1e-9 for d in differences);losses=sum(d.mean() < -1e-9 for d in differences);n=wins+losses
+    wins=int(sum(d.mean()>1e-9 for d in differences));losses=int(sum(d.mean() < -1e-9 for d in differences));n=wins+losses
     groups={}
     for g in ('A','B'):
         allrows=[r for r in rows if r['group']==g];rs=[r for r in allrows if r['case'] in valid]

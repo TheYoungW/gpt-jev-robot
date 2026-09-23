@@ -1,0 +1,12 @@
+{
+  "case_id": "C07",
+  "annotated_wall_time": 1790138285.343474,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "The target retains a similar broad outline and location relative to the wrist fingers as the background objects recede further during the upward move. No large target rotation is visible."
+}

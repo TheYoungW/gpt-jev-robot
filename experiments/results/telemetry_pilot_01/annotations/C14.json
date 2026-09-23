@@ -1,0 +1,12 @@
+{
+  "case_id": "C14",
+  "annotated_wall_time": 1790138285.343682,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "During the rise, yellow retains a broad face centered between the finger sides; background teal becomes smaller. The yellow face has little visible rotation. Exact pad contact is hidden by the fingers and lower image edge."
+}

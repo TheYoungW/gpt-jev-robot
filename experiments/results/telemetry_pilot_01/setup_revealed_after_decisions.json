@@ -1,0 +1,203 @@
+{
+  "seed": 47185797596662061,
+  "episodes": [
+    {
+      "episode": 1,
+      "parameters": [
+        {
+          "body": "coral",
+          "mass_factor": 1.0,
+          "friction_factor": 1.0,
+          "xy_offset": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "body": "teal",
+          "mass_factor": 1.0,
+          "friction_factor": 1.0,
+          "xy_offset": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "body": "gold",
+          "mass_factor": 1.0,
+          "friction_factor": 1.0,
+          "xy_offset": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "scene_sha256": "ca060cc4ac99bead605b25c19189f4fe779a08da4270150556923f0105bc02df"
+    },
+    {
+      "episode": 2,
+      "parameters": [
+        {
+          "body": "coral",
+          "mass_factor": 1.3857650315203078,
+          "friction_factor": 0.694551720747068,
+          "xy_offset": [
+            0.0020293656310851225,
+            -0.0019213781468036687
+          ]
+        },
+        {
+          "body": "teal",
+          "mass_factor": 1.1095812516262735,
+          "friction_factor": 0.8987517522217087,
+          "xy_offset": [
+            -0.0032703518947982194,
+            -0.002845944893959734
+          ]
+        },
+        {
+          "body": "gold",
+          "mass_factor": 1.1636518731219923,
+          "friction_factor": 0.5309727630537273,
+          "xy_offset": [
+            -0.0035796640812055126,
+            -0.0001097787864568359
+          ]
+        }
+      ],
+      "scene_sha256": "394aeac5fd4fee0a9af439a7cf9f18c89cdd35e125be9dc76483f8fc9c233cf7"
+    },
+    {
+      "episode": 3,
+      "parameters": [
+        {
+          "body": "coral",
+          "mass_factor": 0.9768898208350465,
+          "friction_factor": 1.0522162362280754,
+          "xy_offset": [
+            0.0021268025586060595,
+            0.0034333149939358336
+          ]
+        },
+        {
+          "body": "teal",
+          "mass_factor": 1.0779263515371917,
+          "friction_factor": 0.6636927298903518,
+          "xy_offset": [
+            -0.0030582871092786233,
+            -0.001020755835851846
+          ]
+        },
+        {
+          "body": "gold",
+          "mass_factor": 0.8313076973373696,
+          "friction_factor": 1.2286357664022702,
+          "xy_offset": [
+            0.002504288710515932,
+            -0.0036543948746509828
+          ]
+        }
+      ],
+      "scene_sha256": "9ebb87c0de99d8359aa17f5f62932001659a62afb3a04025e72339c98b9c7c22"
+    },
+    {
+      "episode": 4,
+      "parameters": [
+        {
+          "body": "coral",
+          "mass_factor": 1.2701064564751672,
+          "friction_factor": 0.7607408750925537,
+          "xy_offset": [
+            -0.002437652411275429,
+            0.002575719670711957
+          ]
+        },
+        {
+          "body": "teal",
+          "mass_factor": 1.0205737648755377,
+          "friction_factor": 1.1780714264403953,
+          "xy_offset": [
+            0.0007373575503089045,
+            0.0007319425572446378
+          ]
+        },
+        {
+          "body": "gold",
+          "mass_factor": 0.8714732047587133,
+          "friction_factor": 0.8376206035768257,
+          "xy_offset": [
+            0.0003296308098247802,
+            -0.0008778968579914084
+          ]
+        }
+      ],
+      "scene_sha256": "94a80de49ef300302fb68d5f47be9b7b58c9ea60b26b7e7763130eca4ebd7577"
+    },
+    {
+      "episode": 5,
+      "parameters": [
+        {
+          "body": "coral",
+          "mass_factor": 1.131089702449003,
+          "friction_factor": 0.6582845077716901,
+          "xy_offset": [
+            0.0003574707786018344,
+            0.0017137699045643032
+          ]
+        },
+        {
+          "body": "teal",
+          "mass_factor": 0.8995645654529029,
+          "friction_factor": 0.8660328557822741,
+          "xy_offset": [
+            0.0010973631195568857,
+            0.001041329210650475
+          ]
+        },
+        {
+          "body": "gold",
+          "mass_factor": 1.388689874211245,
+          "friction_factor": 0.5424808608279739,
+          "xy_offset": [
+            -0.0017158251528821894,
+            0.000827204917076693
+          ]
+        }
+      ],
+      "scene_sha256": "de026a090c6b0d4b0164a0c6c053597cf23684caaff49bec5bf3cedf95d024cb"
+    },
+    {
+      "episode": 6,
+      "parameters": [
+        {
+          "body": "coral",
+          "mass_factor": 0.971492548366227,
+          "friction_factor": 1.3038404020427952,
+          "xy_offset": [
+            0.00358301817003444,
+            -0.0010804743998122641
+          ]
+        },
+        {
+          "body": "teal",
+          "mass_factor": 0.8307755511181585,
+          "friction_factor": 1.4079831264957643,
+          "xy_offset": [
+            0.0013576692587554456,
+            -0.0025021823035500184
+          ]
+        },
+        {
+          "body": "gold",
+          "mass_factor": 0.8189885058207544,
+          "friction_factor": 1.0319804521547506,
+          "xy_offset": [
+            -0.0027262507155341766,
+            4.560330977948935e-05
+          ]
+        }
+      ],
+      "scene_sha256": "d959980d15a93738a596f312f2e4e7cd495a7d3c0eb11da3f1ac258298218f0f"
+    }
+  ]
+}

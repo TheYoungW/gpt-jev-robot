@@ -6,6 +6,8 @@
 
 ## 演示
 
+**机械反馈对照：** [24 状态、144 次真实 Jev 判断](experiments/results/telemetry_pilot_01/REPORT.md)中，现有视觉/接触反馈组正确率为 63.9%，新增关节位置、速度、受力与夹爪间隙摘要后为 62.5%，未显示提升，输入 token 约为原来的 3.40 倍。这是离线夹持判断，不是抓取成功率；[采样功能](docs/ROBOT_TELEMETRY.md)保留为可选研究入口。
+
 **实证结果：** [V2 首轮对照报告](experiments/results/v2_pilot_01/REPORT.md)包含 12 个状态和 72 次真实 Jev 调用。文本/结构化两组单步物理进展率都是 13.9%，本轮没有证明动作效果提升；输入 token 相对本试验文本基线减少 36.4%。报告同时公开失败、协议缺陷、随机布局和复现方法。
 
 V2 的真实接口检查见 [examples/protocol_v2](examples/protocol_v2/run_notes.md)：Agent 填写结构化观测，Jev 返回重新观察，未执行抓取。这个记录用于核查新协议接线，不作为性能提升证据。

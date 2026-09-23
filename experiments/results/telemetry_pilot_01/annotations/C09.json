@@ -1,0 +1,12 @@
+{
+  "case_id": "C09",
+  "annotated_wall_time": 1790138285.3435342,
+  "viewed_images": [
+    "before_center.png",
+    "before_l_wrist.png",
+    "after_center.png",
+    "after_l_wrist.png"
+  ],
+  "viewing_method": "Actual RGB images inspected in labeled episode contact sheets; no detector, object poses or force summaries used to author the shared description.",
+  "visual_observation": "Yellow shrinks substantially in the wrist view as the fingers rise; the tips close in the foreground while yellow remains farther away. The central view places yellow at its tabletop location beside the other objects."
+}
