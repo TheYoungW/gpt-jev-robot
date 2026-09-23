@@ -41,6 +41,9 @@ class AgentSession:
                    "image_sha256": {k: hashlib.sha256(Path(v).read_bytes()).hexdigest() for k,v in observation["images"].items()},
                    "robot_feedback": {"tcp_world_m": observation["tcp"], "contact_pairs": observation["contacts"], "contact_source": "simulated finger contact sensor", "grippers": grippers},
                    "consumed": False}
+        if self.sim.telemetry is not None:
+            receipt["robot_feedback"]["mechanical_history"] = {
+                arm: self.sim.telemetry.summary(arm) for arm in ("l", "r")}
         self.receipt_path.write_text(json.dumps(receipt, indent=2))
         archive = self.path / "observation_receipts"
         archive.mkdir(exist_ok=True)

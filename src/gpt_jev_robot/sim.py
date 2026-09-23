@@ -19,7 +19,7 @@ class MotionError(RuntimeError):
 
 
 class RobotSim:
-    def __init__(self, run_dir="runs/session", reset=False, video=False):
+    def __init__(self, run_dir="runs/session", reset=False, video=False, telemetry=False):
         self.path = Path(run_dir).resolve()
         self.path.mkdir(parents=True, exist_ok=True)
         scene = self.path / "scene.xml"
@@ -38,11 +38,19 @@ class RobotSim:
         self.arm_q = {}
         self.arm_v = {}
         self.arm_ctrl = {}
+        self.telemetry = None
         for side in ("l", "r"):
             js = [self.model.joint(f"{side}-joint{i}").id for i in range(1, 8)]
             self.arm_q[side] = self.model.jnt_qposadr[js]
             self.arm_v[side] = self.model.jnt_dofadr[js]
             self.arm_ctrl[side] = np.array([self.model.actuator(f"{side}-joint{i}").id for i in range(1, 8)])
+        if telemetry:
+            from .telemetry import RobotTelemetry
+            restored_time = None
+            if not reset and (self.path / "state.npz").exists():
+                with np.load(self.path / "state.npz") as saved:
+                    restored_time = float(saved["time"])
+            self.telemetry = RobotTelemetry(self.model, self.path / "robot_telemetry.npz", restored_time)
         if not reset and (self.path / "state.npz").exists():
             a = np.load(self.path / "state.npz")
             self.data.qpos[:] = a["qpos"]; self.data.qvel[:] = a["qvel"]
@@ -68,6 +76,8 @@ class RobotSim:
 
     def save(self):
         np.savez(self.path / "state.npz", qpos=self.data.qpos, qvel=self.data.qvel, ctrl=self.data.ctrl, time=self.data.time)
+        if self.telemetry is not None:
+            self.telemetry.save(self.path / "robot_telemetry.npz")
 
     def event(self, kind, **details):
         record = {"kind": kind, "simulation_time": round(self.data.time, 4), "wall_time": time.time(), **details}
@@ -132,6 +142,8 @@ class RobotSim:
     def step(self, seconds):
         for _ in range(round(seconds / self.model.opt.timestep)):
             mujoco.mj_step(self.model, self.data)
+            if self.telemetry is not None:
+                self.telemetry.sample(self.data)
             self.steps += 1
             if not np.isfinite(self.data.qpos).all():
                 raise MotionError("Non-finite simulation state")
