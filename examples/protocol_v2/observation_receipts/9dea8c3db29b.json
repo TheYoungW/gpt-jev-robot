@@ -1,0 +1,46 @@
+{
+  "observation_id": "9dea8c3db29b",
+  "simulation_time": 0.8000000000000006,
+  "capture_wall_time": 1790132176.5685658,
+  "previous_observation_id": null,
+  "last_action": null,
+  "images": {
+    "center": "observations/00000.800_before_9dea8c3db29b/center.png",
+    "l_wrist": "observations/00000.800_before_9dea8c3db29b/l_wrist.png",
+    "r_wrist": "observations/00000.800_before_9dea8c3db29b/r_wrist.png",
+    "overview": "observations/00000.800_before_9dea8c3db29b/overview.png"
+  },
+  "image_sha256": {
+    "center": "1678a1b045c400251400654d4afa593123317cab3262c658a93b21855c44414f",
+    "l_wrist": "32e0eca11a74271876075b11d5bb614d4afb642e86a7fe6f9abed4d5bd10f12b",
+    "r_wrist": "3d3d640c4f5e75db3d311ac1af4d6815bff8cd4c50c80db7661770b8c4248535",
+    "overview": "4e730fef15d54f7b6622cb973e2d4f63f2d969fc46b9fd5e08067303ef7b0677"
+  },
+  "robot_feedback": {
+    "tcp_world_m": {
+      "l": [
+        0.3000035430956065,
+        0.20000448830735926,
+        0.8000034069207785
+      ],
+      "r": [
+        0.30019401030358045,
+        -0.2500040662552795,
+        0.7599998364388199
+      ]
+    },
+    "contact_pairs": [],
+    "contact_source": "simulated finger contact sensor",
+    "grippers": {
+      "l": {
+        "commanded_closed": false,
+        "both_pad_contacts": false
+      },
+      "r": {
+        "commanded_closed": false,
+        "both_pad_contacts": false
+      }
+    }
+  },
+  "consumed": false
+}

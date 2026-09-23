@@ -6,6 +6,8 @@
 
 ## 演示
 
+V2 的真实接口检查见 [examples/protocol_v2](examples/protocol_v2/run_notes.md)：Agent 填写结构化观测，Jev 返回重新观察，未执行抓取。这个记录用于核查新协议接线，不作为性能提升证据。
+
 当前会话逐步看图操作的完整结果见 [examples/live_visual](examples/live_visual/)，包含抓取前后图片、约 4 倍速视频、39 次真实 Jev 决策、逐步视觉判断和独立验收报告。三个物体最终都落稳在盘内；黄色首次试提失败后重抓，黄色和红色运输/下降时曾滑落入盘，青色保持夹持至主动松爪。详见[实验记录与局限](examples/live_visual/run_notes.md)。这是一轮流程验证，不代表稳定抓取成功率。
 
 早期固定流程的对照结果保留在 [examples/verified](examples/verified/)。两组视频均来自 MuJoCo 渲染。
@@ -37,7 +39,7 @@ jev-robot --run-dir runs/my_agent
 jev-robot --run-dir runs/my_agent agent-step proposal.json
 ```
 
-提案必须引用最新 `observation_id`，声明实际查看的相机，并写入简短视觉判断和候选动作。协议见 [视觉 Agent 工作方式](docs/LIVE_AGENT.md)。Python 没有内置 GPT：需要当前会话中的 Agent 持续看图和发出新提案，单独运行命令不会自动替代这一过程。
+新提案使用 [V2 结构化视觉协议](docs/PROTOCOL_V2.md)：引用最新图片，填写有证据的关系与未知项，提交含完整参数、条件和结果检查的候选动作。`agent-template` 生成待填写表单，`agent-schema` 输出 JSON Schema。V2 不把 Agent 的推荐理由发送给 Jev；旧提案按 V1 保持兼容。Python 没有内置 GPT：需要当前会话中的 Agent 持续看图和发出新提案，单独运行命令不会自动替代这一过程。
 
 Jev 密钥通过 `TYPESAFE_API_KEY` 传入，或读取本地忽略的 `.secrets/typesafe.key`。密钥不进入日志。
 
@@ -63,6 +65,8 @@ jev-robot --run-dir runs/legacy_online baseline-demo --online --video
 ```bash
 jev-robot --run-dir runs/agent agent-start
 jev-robot --run-dir runs/agent agent-observe
+jev-robot --run-dir runs/agent agent-template > proposal.json
+# 实际看图并填写 proposal.json 后执行。
 jev-robot --run-dir runs/agent agent-step proposal.json
 # 完成后导出录像并进行独立最终验收。
 jev-robot --run-dir runs/agent agent-evaluate
@@ -76,7 +80,7 @@ MCP stdio 服务：
 jev-robot-mcp
 ```
 
-设置 `ROBOT_RUN_DIR` 可指定会话目录。提供 `observe`、`agent_step`、`move_to`、`nudge`、`set_gripper`、`decide_next`、`verify_completion`。这些基础工具就是“肌肉层”；接入客户端后，Agent 可自由组合，Jev 接口在 Python 决策层。参见 [架构](docs/ARCHITECTURE.md) 与 [实验计划](docs/EXPERIMENTS.md)。
+设置 `ROBOT_RUN_DIR` 可指定会话目录。提供 `observe`、`agent_schema`、`agent_template`、`agent_step`、`move_to`、`nudge`、`set_gripper`、`decide_next`、`verify_completion`。这些基础工具就是“肌肉层”；接入客户端后，Agent 可自由组合，Jev 接口在 Python 决策层。参见 [架构](docs/ARCHITECTURE.md) 与 [实验计划](docs/EXPERIMENTS.md)。
 
 ## 模型、标定与边界
 

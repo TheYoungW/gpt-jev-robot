@@ -1,0 +1,580 @@
+{
+  "$defs": {
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "intent": {
+          "enum": [
+            "observe",
+            "approach",
+            "align",
+            "close",
+            "test_lift",
+            "transport",
+            "lower",
+            "release",
+            "retreat",
+            "wait",
+            "finish"
+          ],
+          "title": "Intent",
+          "type": "string"
+        },
+        "command": {
+          "discriminator": {
+            "mapping": {
+              "finish": "#/$defs/Finish",
+              "gripper": "#/$defs/Gripper",
+              "move": "#/$defs/Move",
+              "nudge": "#/$defs/Nudge",
+              "observe": "#/$defs/Observe",
+              "wait": "#/$defs/Wait"
+            },
+            "propertyName": "op"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Move"
+            },
+            {
+              "$ref": "#/$defs/Nudge"
+            },
+            {
+              "$ref": "#/$defs/Gripper"
+            },
+            {
+              "$ref": "#/$defs/Observe"
+            },
+            {
+              "$ref": "#/$defs/Wait"
+            },
+            {
+              "$ref": "#/$defs/Finish"
+            }
+          ],
+          "title": "Command"
+        },
+        "requires": {
+          "items": {
+            "$ref": "#/$defs/Requirement"
+          },
+          "maxItems": 12,
+          "title": "Requires",
+          "type": "array"
+        },
+        "expected_observation": {
+          "items": {
+            "$ref": "#/$defs/OutcomeCheck"
+          },
+          "maxItems": 7,
+          "minItems": 1,
+          "title": "Expected Observation",
+          "type": "array"
+        },
+        "failure_signals": {
+          "items": {
+            "$ref": "#/$defs/OutcomeCheck"
+          },
+          "maxItems": 7,
+          "minItems": 1,
+          "title": "Failure Signals",
+          "type": "array"
+        },
+        "clearance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EvidenceAssessment"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "intent",
+        "command",
+        "requires",
+        "expected_observation",
+        "failure_signals"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "EvidenceAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown"
+          ],
+          "title": "Value",
+          "type": "string"
+        },
+        "source": {
+          "const": "agent_visual_assessment",
+          "default": "agent_visual_assessment",
+          "title": "Source",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/ImageRef"
+          },
+          "maxItems": 6,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "reason": {
+          "default": "",
+          "maxLength": 240,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "evidence"
+      ],
+      "title": "EvidenceAssessment",
+      "type": "object"
+    },
+    "Finish": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "const": "finish",
+          "title": "Op",
+          "type": "string"
+        }
+      },
+      "required": [
+        "op"
+      ],
+      "title": "Finish",
+      "type": "object"
+    },
+    "Gripper": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "const": "gripper",
+          "title": "Op",
+          "type": "string"
+        },
+        "closed": {
+          "title": "Closed",
+          "type": "boolean"
+        },
+        "arm": {
+          "default": "l",
+          "enum": [
+            "l",
+            "r"
+          ],
+          "title": "Arm",
+          "type": "string"
+        }
+      },
+      "required": [
+        "op",
+        "closed"
+      ],
+      "title": "Gripper",
+      "type": "object"
+    },
+    "ImageRef": {
+      "additionalProperties": false,
+      "properties": {
+        "observation_id": {
+          "title": "Observation Id",
+          "type": "string"
+        },
+        "camera": {
+          "enum": [
+            "center",
+            "l_wrist",
+            "r_wrist"
+          ],
+          "title": "Camera",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observation_id",
+        "camera"
+      ],
+      "title": "ImageRef",
+      "type": "object"
+    },
+    "Move": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "const": "move",
+          "title": "Op",
+          "type": "string"
+        },
+        "position": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Position",
+          "type": "array"
+        },
+        "arm": {
+          "default": "l",
+          "enum": [
+            "l",
+            "r"
+          ],
+          "title": "Arm",
+          "type": "string"
+        },
+        "yaw": {
+          "default": 1.5707963267948966,
+          "title": "Yaw",
+          "type": "number"
+        }
+      },
+      "required": [
+        "op",
+        "position"
+      ],
+      "title": "Move",
+      "type": "object"
+    },
+    "Nudge": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "const": "nudge",
+          "title": "Op",
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "up",
+            "down",
+            "forward",
+            "back",
+            "left",
+            "right"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "distance": {
+          "exclusiveMinimum": 0,
+          "maximum": 0.05,
+          "title": "Distance",
+          "type": "number"
+        },
+        "arm": {
+          "default": "l",
+          "enum": [
+            "l",
+            "r"
+          ],
+          "title": "Arm",
+          "type": "string"
+        }
+      },
+      "required": [
+        "op",
+        "direction",
+        "distance"
+      ],
+      "title": "Nudge",
+      "type": "object"
+    },
+    "Observe": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "const": "observe",
+          "title": "Op",
+          "type": "string"
+        },
+        "label": {
+          "default": "recheck",
+          "pattern": "^[A-Za-z0-9_-]{1,60}$",
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "op"
+      ],
+      "title": "Observe",
+      "type": "object"
+    },
+    "OutcomeCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "relation": {
+          "enum": [
+            "visible",
+            "between_fingers",
+            "finger_side_overlap",
+            "moves_with_gripper",
+            "inside_tray",
+            "resting_on_surface"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "yes",
+            "no"
+          ],
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "relation",
+        "value"
+      ],
+      "title": "OutcomeCheck",
+      "type": "object"
+    },
+    "Requirement": {
+      "additionalProperties": false,
+      "properties": {
+        "fact": {
+          "title": "Fact",
+          "type": "string"
+        },
+        "equals": {
+          "enum": [
+            "yes",
+            "no"
+          ],
+          "title": "Equals",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fact",
+        "equals"
+      ],
+      "title": "Requirement",
+      "type": "object"
+    },
+    "VisibleObject": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "pattern": "^object_[0-9]{2,4}$",
+          "title": "Object Id",
+          "type": "string"
+        },
+        "appearance": {
+          "maxLength": 160,
+          "minLength": 3,
+          "title": "Appearance",
+          "type": "string"
+        },
+        "visibility": {
+          "enum": [
+            "clear",
+            "partial",
+            "occluded",
+            "unknown"
+          ],
+          "title": "Visibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "object_id",
+        "appearance",
+        "visibility"
+      ],
+      "title": "VisibleObject",
+      "type": "object"
+    },
+    "VisualFact": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown"
+          ],
+          "title": "Value",
+          "type": "string"
+        },
+        "source": {
+          "const": "agent_visual_assessment",
+          "default": "agent_visual_assessment",
+          "title": "Source",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/ImageRef"
+          },
+          "maxItems": 6,
+          "title": "Evidence",
+          "type": "array"
+        },
+        "reason": {
+          "default": "",
+          "maxLength": 240,
+          "title": "Reason",
+          "type": "string"
+        },
+        "subject": {
+          "pattern": "^object_[0-9]{2,4}$",
+          "title": "Subject",
+          "type": "string"
+        },
+        "relation": {
+          "enum": [
+            "visible",
+            "between_fingers",
+            "finger_side_overlap",
+            "moves_with_gripper",
+            "inside_tray",
+            "resting_on_surface"
+          ],
+          "title": "Relation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "subject",
+        "relation"
+      ],
+      "title": "VisualFact",
+      "type": "object"
+    },
+    "Wait": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "const": "wait",
+          "title": "Op",
+          "type": "string"
+        },
+        "seconds": {
+          "exclusiveMinimum": 0,
+          "maximum": 3,
+          "title": "Seconds",
+          "type": "number"
+        }
+      },
+      "required": [
+        "op",
+        "seconds"
+      ],
+      "title": "Wait",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "2.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "observation_id": {
+      "title": "Observation Id",
+      "type": "string"
+    },
+    "viewed_cameras": {
+      "items": {
+        "enum": [
+          "center",
+          "l_wrist",
+          "r_wrist"
+        ],
+        "type": "string"
+      },
+      "maxItems": 3,
+      "minItems": 1,
+      "title": "Viewed Cameras",
+      "type": "array"
+    },
+    "compared_images": {
+      "items": {
+        "$ref": "#/$defs/ImageRef"
+      },
+      "maxItems": 12,
+      "title": "Compared Images",
+      "type": "array"
+    },
+    "target_id": {
+      "pattern": "^object_[0-9]{2,4}$",
+      "title": "Target Id",
+      "type": "string"
+    },
+    "working_arm": {
+      "default": "l",
+      "enum": [
+        "l",
+        "r"
+      ],
+      "title": "Working Arm",
+      "type": "string"
+    },
+    "objects": {
+      "items": {
+        "$ref": "#/$defs/VisibleObject"
+      },
+      "maxItems": 32,
+      "minItems": 1,
+      "title": "Objects",
+      "type": "array"
+    },
+    "visual_facts": {
+      "items": {
+        "$ref": "#/$defs/VisualFact"
+      },
+      "maxItems": 192,
+      "minItems": 6,
+      "title": "Visual Facts",
+      "type": "array"
+    },
+    "candidates": {
+      "maxProperties": 8,
+      "minProperties": 2,
+      "patternProperties": {
+        "^(observe|a[0-9]{2})$": {
+          "$ref": "#/$defs/Candidate"
+        }
+      },
+      "title": "Candidates",
+      "type": "object"
+    },
+    "audit_note": {
+      "default": "",
+      "maxLength": 2000,
+      "title": "Audit Note",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "observation_id",
+    "viewed_cameras",
+    "target_id",
+    "objects",
+    "visual_facts",
+    "candidates"
+  ],
+  "title": "ProposalV2",
+  "type": "object"
+}

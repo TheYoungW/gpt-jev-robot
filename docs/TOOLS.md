@@ -1,5 +1,7 @@
 # Agent 工具接口
 
+新提案入口：`agent-template`、`agent-schema` 和 `agent-step`，详见 [V2 协议](PROTOCOL_V2.md)。MCP 新增 `agent_template`、`agent_schema`；底层兼容接口不具备 V2 的结构化证据校验。
+
 默认入口与提案协议见 [LIVE_AGENT.md](LIVE_AGENT.md)。下文的 `act/decide` 是较低层的兼容接口；它不具备新的图片收据检查。默认 MCP `observe` 返回观测编号，使用 `agent_step` 提交看图后的下一步。
 
 从仓库根目录运行。CLI 通过运行目录中的 `state.npz` 保存和恢复机器人、物体、控制目标和仿真时间。

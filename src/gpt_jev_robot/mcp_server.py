@@ -5,6 +5,7 @@ from mcp.server.fastmcp import FastMCP
 from .sim import RobotSim
 from .cli import respond
 from .agent_session import AgentSession
+from .protocol import ProposalV2
 
 mcp = FastMCP("yunyi-mujoco-muscles")
 _sim = None
@@ -25,8 +26,20 @@ def observe() -> dict:
 
 @mcp.tool()
 def agent_step(proposal: dict) -> dict:
-    """Execute one Jev choice from a visual proposal authored by the conversation agent. Requires latest observation_id, viewed_cameras, visual_assessment, decision_summary and candidates. Always returns fresh camera images for the next agent turn."""
+    """Execute one Jev choice after image inspection. Prefer V2: schema_version=2.0, observation_id, viewed_cameras, target_id, objects, visual_facts, candidates. Use agent_schema and agent_template for the contract. Legacy V1 remains accepted. Returns fresh feedback images after execution."""
     with _lock: return AgentSession(sim()).step(proposal)
+
+
+@mcp.tool()
+def agent_schema() -> dict:
+    """Return the strict V2 JSON Schema; unknown facts are explicit, recommendations stay audit-only."""
+    return ProposalV2.model_json_schema()
+
+
+@mcp.tool()
+def agent_template() -> dict:
+    """Return an unfilled V2 form for the existing observation. Inspect images and replace placeholders before submitting."""
+    with _lock: return respond(sim(), {"op": "agent_template"})
 
 
 @mcp.tool()

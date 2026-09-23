@@ -7,6 +7,7 @@ from .sim import RobotSim
 from .actions import execute
 from .decision import JevClient, load_private_key, decide_proposal
 from .agent_session import AgentSession
+from .protocol import ProposalV2, template
 
 
 def respond(sim, request):
@@ -14,6 +15,9 @@ def respond(sim, request):
     if op == "agent_observe": return AgentSession(sim).observe()
     if op == "agent_step": return AgentSession(sim).step(request["proposal"])
     if op == "agent_evaluate": return AgentSession(sim).evaluate()
+    if op == "agent_template":
+        receipt = json.loads((sim.path / "pending_observation.json").read_text())
+        return template(receipt)
     if op == "baseline_perceive":
         from .perception import detect_objects
         return detect_objects(sim)
@@ -39,6 +43,8 @@ def main():
     sub.add_parser("agent-start")
     sub.add_parser("agent-observe")
     sub.add_parser("agent-evaluate")
+    sub.add_parser("agent-template")
+    sub.add_parser("agent-schema")
     agent_step = sub.add_parser("agent-step"); agent_step.add_argument("json_file")
     sub.add_parser("init")
     sub.add_parser("observe")
@@ -48,6 +54,9 @@ def main():
     serve = sub.add_parser("serve"); serve.add_argument("--reset", action="store_true"); serve.add_argument("--video", action="store_true")
     demo = sub.add_parser("baseline-demo"); demo.add_argument("--online", action="store_true"); demo.add_argument("--video", action="store_true")
     args = p.parse_args()
+    if args.mode == "agent-schema":
+        print(json.dumps(ProposalV2.model_json_schema(), indent=2))
+        return
     if args.mode is None:
         args.mode = "agent-observe" if (Path(args.run_dir)/"scene.xml").exists() else "agent-start"
     if args.mode == "baseline-demo":
@@ -62,6 +71,7 @@ def main():
             session = AgentSession(sim)
             if args.mode == "agent-step": result = session.step(json.loads(Path(args.json_file).read_text()))
             elif args.mode == "agent-evaluate": result = session.evaluate()
+            elif args.mode == "agent-template": result = respond(sim, {"op": "agent_template"})
             else:
                 result = session.observe("before" if args.mode == "agent-start" else "agent")
                 if args.mode == "agent-start":

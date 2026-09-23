@@ -1,0 +1,11 @@
+{
+  "calls": 1,
+  "models": [
+    "jev-1.13.0"
+  ],
+  "confidence_min": 0.8,
+  "confidence_max": 0.8,
+  "latency_ms_mean": 479.1678190231323,
+  "input_tokens": 2452,
+  "output_tokens": 43
+}

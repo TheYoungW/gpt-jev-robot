@@ -30,7 +30,11 @@ def main():
     if (source / "events.jsonl").exists():
         # Portable paths; private local run location is not needed for review.
         (dest / "events.jsonl").write_text((source / "events.jsonl").read_text().replace(str(source)+"/", ""))
-    versions = {name: importlib.metadata.version(name) for name in ("mujoco", "numpy", "scipy", "pillow", "httpx", "imageio", "imageio-ffmpeg", "mcp", "pytest")}
+    for f in (source / "observation_receipts").glob("*.json"):
+        target = dest / "observation_receipts" / f.name
+        target.parent.mkdir(exist_ok=True)
+        target.write_text(f.read_text().replace(str(source)+"/", ""))
+    versions = {name: importlib.metadata.version(name) for name in ("mujoco", "numpy", "scipy", "pillow", "httpx", "imageio", "imageio-ffmpeg", "mcp", "pydantic", "pytest")}
     (dest / "environment.json").write_text(json.dumps({"python": platform.python_version(), "packages": versions}, indent=2))
     decisions = [json.loads(line) for line in (source / "decisions.jsonl").read_text().splitlines()] if (source / "decisions.jsonl").exists() else []
     if decisions:

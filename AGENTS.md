@@ -10,3 +10,4 @@
 - Credentials belong in environment variables or ignored private local files, never source, artifacts, screenshots or Git. Only send the TypeSafe key to its documented official endpoint.
 - Use a new run directory for new trials. Preserve failures. Low confidence or a control failure should yield to an agent observation/replan, not silently be counted as success.
 - Keep the free-form interactive agent mode distinct from the finite demonstration playbook. This repository does not call a GPT API.
+- Use schema_version 2.0 for new visual proposals. Read docs/PROTOCOL_V2.md, inspect the actual images, fill explicit unknowns and evidence references, and keep recommendations in audit_note only. Legacy V1 remains for compatibility, not the default for newly authored proposals.

@@ -145,7 +145,8 @@ class RobotSim:
                 self.writer.append_data(np.asarray(frame))
                 self.frame_count += 1
 
-    def move(self, position, side="l", yaw=np.pi/2, duration=None):
+    def plan_move(self, position, side="l", yaw=np.pi/2, duration=None):
+        """Validate workspace and every IK waypoint without advancing physics."""
         p = np.asarray(position, dtype=float)
         if p.shape != (3,) or not np.isfinite(p).all() or not np.isfinite(yaw):
             raise MotionError("Expected finite XYZ meters and yaw radians")
@@ -170,6 +171,10 @@ class RobotSim:
         finally:
             self.data.qpos[:] = old_q
             mujoco.mj_forward(self.model, self.data)
+        return p, duration, targets
+
+    def move(self, position, side="l", yaw=np.pi/2, duration=None):
+        p, duration, targets = self.plan_move(position, side, yaw, duration)
         for q in targets:
             previous = self.data.ctrl[self.arm_ctrl[side]].copy()
             segment_time = max(duration / len(targets), float(np.max(np.abs(q-previous))) / .6)
