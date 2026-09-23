@@ -1,0 +1,297 @@
+{
+  "states": 12,
+  "layout_clusters": 7,
+  "API_calls": 72,
+  "table": [
+    {
+      "case": "H01",
+      "cluster": "historical",
+      "objective": "recover_open",
+      "A": 0.0,
+      "A_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "B": 0.0,
+      "B_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "C": 0,
+      "C_choice": "a01",
+      "C_accepted": "observe",
+      "C_gate": "ineligible_action"
+    },
+    {
+      "case": "H02",
+      "cluster": "historical",
+      "objective": "retained_lift",
+      "A": 0.3333333333333333,
+      "A_choices": [
+        "observe",
+        "a01",
+        "observe"
+      ],
+      "B": 0.0,
+      "B_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "C": 1,
+      "C_choice": "a01",
+      "C_accepted": "a01",
+      "C_gate": null
+    },
+    {
+      "case": "H03",
+      "cluster": "historical",
+      "objective": "release_in_tray",
+      "A": 0.0,
+      "A_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "B": 0.0,
+      "B_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "C": 1,
+      "C_choice": "a01",
+      "C_accepted": "a01",
+      "C_gate": null
+    },
+    {
+      "case": "H04",
+      "cluster": "historical",
+      "objective": "retained_lift",
+      "A": 1.0,
+      "A_choices": [
+        "a01",
+        "a01",
+        "a01"
+      ],
+      "B": 1.0,
+      "B_choices": [
+        "a01",
+        "a01",
+        "a01"
+      ],
+      "C": 1,
+      "C_choice": "a01",
+      "C_accepted": "a01",
+      "C_gate": null
+    },
+    {
+      "case": "H05",
+      "cluster": "historical",
+      "objective": "retreat",
+      "A": 0.0,
+      "A_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "B": 0.0,
+      "B_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "C": 1,
+      "C_choice": "a01",
+      "C_accepted": "a01",
+      "C_gate": null
+    },
+    {
+      "case": "H06",
+      "cluster": "historical",
+      "objective": "finish",
+      "A": 0.0,
+      "A_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "B": 0.6666666666666666,
+      "B_choices": [
+        "observe",
+        "a01",
+        "a01"
+      ],
+      "C": 1,
+      "C_choice": "a01",
+      "C_accepted": "a01",
+      "C_gate": null
+    },
+    {
+      "case": "R01",
+      "cluster": "R01",
+      "objective": "align",
+      "A": 0.3333333333333333,
+      "A_choices": [
+        "a02",
+        "observe",
+        "observe"
+      ],
+      "B": 0.0,
+      "B_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "C": 0,
+      "C_choice": "a01",
+      "C_accepted": "observe",
+      "C_gate": "ineligible_action"
+    },
+    {
+      "case": "R02",
+      "cluster": "R02",
+      "objective": "align",
+      "A": 0.0,
+      "A_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "B": 0.0,
+      "B_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "C": 0,
+      "C_choice": "a01",
+      "C_accepted": "observe",
+      "C_gate": "ineligible_action"
+    },
+    {
+      "case": "R03",
+      "cluster": "R03",
+      "objective": "align",
+      "A": 0.0,
+      "A_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "B": 0.0,
+      "B_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "C": 1,
+      "C_choice": "a01",
+      "C_accepted": "a01",
+      "C_gate": null
+    },
+    {
+      "case": "R04",
+      "cluster": "R04",
+      "objective": "align",
+      "A": 0.0,
+      "A_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "B": 0.0,
+      "B_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "C": 0,
+      "C_choice": "a01",
+      "C_accepted": "observe",
+      "C_gate": "ineligible_action"
+    },
+    {
+      "case": "R05",
+      "cluster": "R05",
+      "objective": "align",
+      "A": 0.0,
+      "A_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "B": 0.0,
+      "B_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "C": 1,
+      "C_choice": "a01",
+      "C_accepted": "a01",
+      "C_gate": null
+    },
+    {
+      "case": "R06",
+      "cluster": "R06",
+      "objective": "align",
+      "A": 0.0,
+      "A_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "B": 0.0,
+      "B_choices": [
+        "observe",
+        "observe",
+        "observe"
+      ],
+      "C": 1,
+      "C_choice": "a01",
+      "C_accepted": "a01",
+      "C_gate": null
+    }
+  ],
+  "progress_rate": {
+    "A": 0.13888888888888887,
+    "B": 0.13888888888888887,
+    "C": 0.6666666666666666
+  },
+  "B_minus_A": 0.0,
+  "cluster_bootstrap_95_interval": [
+    -0.14285714285714285,
+    0.045454545454545456
+  ],
+  "cluster_sign_test": {
+    "B_wins": 1,
+    "A_wins": 1,
+    "two_sided_p": 1.0
+  },
+  "groups": {
+    "A": {
+      "completed": 36,
+      "errors": 0,
+      "raw_ineligible": 0,
+      "gated": 7,
+      "observe": 31,
+      "mean_input_tokens": 4706.25,
+      "mean_latency_ms": 519.85516894557,
+      "order_sensitive_states": 2
+    },
+    "B": {
+      "completed": 36,
+      "errors": 0,
+      "raw_ineligible": 0,
+      "gated": 8,
+      "observe": 31,
+      "mean_input_tokens": 2991.5,
+      "mean_latency_ms": 483.36715161955607,
+      "order_sensitive_states": 1
+    }
+  },
+  "API_experiment_wall_seconds": 36.12528681755066
+}

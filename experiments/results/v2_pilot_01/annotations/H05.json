@@ -1,0 +1,224 @@
+{
+  "case": "H05",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "1c398337d2ea",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Teal offset block on the tray floor between visibly open fingers",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "1c398337d2ea",
+            "camera": "center"
+          },
+          {
+            "observation_id": "1c398337d2ea",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "1c398337d2ea",
+            "camera": "center"
+          },
+          {
+            "observation_id": "1c398337d2ea",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "1c398337d2ea",
+            "camera": "center"
+          },
+          {
+            "observation_id": "1c398337d2ea",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "unknown",
+        "evidence": [],
+        "reason": "Not established in the inspected image pair"
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "1c398337d2ea",
+            "camera": "center"
+          },
+          {
+            "observation_id": "1c398337d2ea",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "1c398337d2ea",
+            "camera": "center"
+          },
+          {
+            "observation_id": "1c398337d2ea",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "retreat",
+        "command": {
+          "op": "nudge",
+          "direction": "up",
+          "distance": 0.04
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "inside_tray",
+            "value": "yes"
+          },
+          {
+            "relation": "resting_on_surface",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "between_fingers",
+            "value": "yes"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The space directly above the open fingers is clear in the central view",
+          "evidence": [
+            {
+              "observation_id": "1c398337d2ea",
+              "camera": "center"
+            },
+            {
+              "observation_id": "1c398337d2ea",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a02": {
+        "intent": "align",
+        "command": {
+          "op": "nudge",
+          "direction": "down",
+          "distance": 0.015
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "resting_on_surface",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "unknown",
+          "reason": "The low fingers are near the released object and tray floor",
+          "evidence": []
+        }
+      },
+      "a03": {
+        "intent": "wait",
+        "command": {
+          "op": "wait",
+          "seconds": 0.8
+        },
+        "requires": [
+          {
+            "fact": "object_01.inside_tray",
+            "equals": "yes"
+          }
+        ],
+        "expected_observation": [
+          {
+            "relation": "resting_on_surface",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "inside_tray",
+            "value": "no"
+          }
+        ]
+      }
+    },
+    "audit_note": "Teal has been released, the pads are open and there is no contact. I would withdraw vertically to clear the object and improve the final view. A downward movement has uncertain floor clearance."
+  }
+}

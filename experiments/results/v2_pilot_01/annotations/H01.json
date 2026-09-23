@@ -1,0 +1,242 @@
+{
+  "case": "H01",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "41aac40a15c7",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [
+      {
+        "observation_id": "cc208cdf0cec",
+        "camera": "l_wrist"
+      }
+    ],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Yellow block with rounded lobes, on the tabletop beneath the raised closed fingers",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "center"
+          },
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "center"
+          },
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "center"
+          },
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "center"
+          },
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "l_wrist"
+          },
+          {
+            "observation_id": "cc208cdf0cec",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "center"
+          },
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "center"
+          },
+          {
+            "observation_id": "41aac40a15c7",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "release",
+        "command": {
+          "op": "gripper",
+          "closed": false
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "between_fingers",
+            "value": "no"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "between_fingers",
+            "value": "yes"
+          }
+        ]
+      },
+      "a02": {
+        "intent": "test_lift",
+        "command": {
+          "op": "nudge",
+          "direction": "up",
+          "distance": 0.04
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "moves_with_gripper",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "moves_with_gripper",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The short vertical space above the empty gripper is visible",
+          "evidence": [
+            {
+              "observation_id": "41aac40a15c7",
+              "camera": "center"
+            },
+            {
+              "observation_id": "41aac40a15c7",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a03": {
+        "intent": "retreat",
+        "command": {
+          "op": "nudge",
+          "direction": "up",
+          "distance": 0.04
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "There is unobstructed space above the current gripper",
+          "evidence": [
+            {
+              "observation_id": "41aac40a15c7",
+              "camera": "center"
+            },
+            {
+              "observation_id": "41aac40a15c7",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      }
+    },
+    "audit_note": "The current object is smaller and below the raised fingers compared with the previous wrist image; finger contacts are gone. My next action would be to open the failed grasp before another approach. V2 currently requires inside_tray for release, so this recovery is likely blocked; preserve the limitation instead of relabeling the intent."
+  }
+}

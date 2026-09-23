@@ -1,0 +1,18 @@
+{
+  "verified_wall_time": 1790135827.842665,
+  "mode": "offline same-machine reproduction, no additional API calls",
+  "unique_state_action_pairs": 20,
+  "checks": {
+    "physical_scores.json": {
+      "original_sha256": "02f6887092aea2676e4525b253cb4ba904a24c5689bc415989bd17385031acab",
+      "reproduced_sha256": "02f6887092aea2676e4525b253cb4ba904a24c5689bc415989bd17385031acab",
+      "all_fields_equal": true
+    },
+    "summary.json": {
+      "original_sha256": "0e2d0141610ceb012d85ff766fadb4bb64ba865ea8d8bc141e0262588a0ac675",
+      "reproduced_sha256": "0e2d0141610ceb012d85ff766fadb4bb64ba865ea8d8bc141e0262588a0ac675",
+      "all_fields_equal": true
+    }
+  },
+  "archived_rgb_hashes_verified": 192
+}

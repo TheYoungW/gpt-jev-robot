@@ -1,0 +1,218 @@
+{
+  "case": "H03",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "39ba49f72e03",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [
+      {
+        "observation_id": "42a7a0b6ede1",
+        "camera": "l_wrist"
+      }
+    ],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Yellow block rotated beneath the closed gripper inside the tray",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "39ba49f72e03",
+            "camera": "center"
+          },
+          {
+            "observation_id": "39ba49f72e03",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "39ba49f72e03",
+            "camera": "center"
+          },
+          {
+            "observation_id": "39ba49f72e03",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "39ba49f72e03",
+            "camera": "center"
+          },
+          {
+            "observation_id": "39ba49f72e03",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "39ba49f72e03",
+            "camera": "center"
+          },
+          {
+            "observation_id": "39ba49f72e03",
+            "camera": "l_wrist"
+          },
+          {
+            "observation_id": "42a7a0b6ede1",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "39ba49f72e03",
+            "camera": "center"
+          },
+          {
+            "observation_id": "39ba49f72e03",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "unknown",
+        "evidence": [],
+        "reason": "The rotated object has just lost finger contact; this image does not establish settled support"
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "release",
+        "command": {
+          "op": "gripper",
+          "closed": false
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "resting_on_surface",
+            "value": "yes"
+          },
+          {
+            "relation": "between_fingers",
+            "value": "no"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "inside_tray",
+            "value": "no"
+          }
+        ]
+      },
+      "a02": {
+        "intent": "lower",
+        "command": {
+          "op": "nudge",
+          "direction": "down",
+          "distance": 0.02
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "resting_on_surface",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "inside_tray",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "unknown",
+          "reason": "The target has rotated beneath the fingers and its vertical clearance is uncertain",
+          "evidence": []
+        }
+      },
+      "a03": {
+        "intent": "wait",
+        "command": {
+          "op": "wait",
+          "seconds": 0.8
+        },
+        "requires": [
+          {
+            "fact": "object_01.inside_tray",
+            "equals": "yes"
+          }
+        ],
+        "expected_observation": [
+          {
+            "relation": "resting_on_surface",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "inside_tray",
+            "value": "no"
+          }
+        ]
+      }
+    },
+    "audit_note": "The yellow shape has rotated and shifted away from the previous held appearance, with no finger contact. It is inside the tray. I would open the empty fingers and let it settle, rather than lower as though still holding it."
+  }
+}

@@ -1,0 +1,13 @@
+case,cluster,objective,A,B,C,C_choice,C_accepted,C_gate
+H01,historical,recover_open,0.0,0.0,0,a01,observe,ineligible_action
+H02,historical,retained_lift,0.3333333333333333,0.0,1,a01,a01,
+H03,historical,release_in_tray,0.0,0.0,1,a01,a01,
+H04,historical,retained_lift,1.0,1.0,1,a01,a01,
+H05,historical,retreat,0.0,0.0,1,a01,a01,
+H06,historical,finish,0.0,0.6666666666666666,1,a01,a01,
+R01,R01,align,0.3333333333333333,0.0,0,a01,observe,ineligible_action
+R02,R02,align,0.0,0.0,0,a01,observe,ineligible_action
+R03,R03,align,0.0,0.0,1,a01,a01,
+R04,R04,align,0.0,0.0,0,a01,observe,ineligible_action
+R05,R05,align,0.0,0.0,1,a01,a01,
+R06,R06,align,0.0,0.0,1,a01,a01,

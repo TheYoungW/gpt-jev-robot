@@ -1,0 +1,215 @@
+{
+  "case": "R03",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "ea37c97d0b04",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Yellow rounded block slightly left of the open finger midpoint and low in the wrist image, with a tilted long axis",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "ea37c97d0b04",
+            "camera": "center"
+          },
+          {
+            "observation_id": "ea37c97d0b04",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "unknown",
+        "evidence": [],
+        "reason": "Not established in the inspected image pair"
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "ea37c97d0b04",
+            "camera": "center"
+          },
+          {
+            "observation_id": "ea37c97d0b04",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "unknown",
+        "evidence": [],
+        "reason": "Not established in the inspected image pair"
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "ea37c97d0b04",
+            "camera": "center"
+          },
+          {
+            "observation_id": "ea37c97d0b04",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "ea37c97d0b04",
+            "camera": "center"
+          },
+          {
+            "observation_id": "ea37c97d0b04",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "align",
+        "command": {
+          "op": "nudge",
+          "direction": "back",
+          "distance": 0.015
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The short horizontal corridor above the yellow target is clear and avoids the red and teal objects",
+          "evidence": [
+            {
+              "observation_id": "ea37c97d0b04",
+              "camera": "center"
+            },
+            {
+              "observation_id": "ea37c97d0b04",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a02": {
+        "intent": "align",
+        "command": {
+          "op": "nudge",
+          "direction": "right",
+          "distance": 0.02
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The small lateral displacement stays above the visible tabletop surface",
+          "evidence": [
+            {
+              "observation_id": "ea37c97d0b04",
+              "camera": "center"
+            },
+            {
+              "observation_id": "ea37c97d0b04",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a03": {
+        "intent": "close",
+        "command": {
+          "op": "gripper",
+          "closed": true
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "between_fingers",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "between_fingers",
+            "value": "no"
+          }
+        ]
+      }
+    },
+    "audit_note": "The yellow center is left of the finger midpoint. I would make a small world -X correction at current height; a small -Y correction is another plausible adjustment. The fingers are not yet alongside the object's side faces."
+  }
+}

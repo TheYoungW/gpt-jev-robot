@@ -11,6 +11,7 @@ dependencies = ["mujoco>=3.3,<4", "numpy>=1.26", "scipy>=1.11", "pillow>=10", "i
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
+analysis = ["matplotlib>=3.8,<4"]
 
 [project.scripts]
 jev-robot = "gpt_jev_robot.cli:main"

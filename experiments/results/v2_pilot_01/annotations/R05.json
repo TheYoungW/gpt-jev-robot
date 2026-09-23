@@ -1,0 +1,224 @@
+{
+  "case": "R05",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "d5ae8b88fa97",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Yellow rounded block to the right of the open finger midpoint and low in the wrist view",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "d5ae8b88fa97",
+            "camera": "center"
+          },
+          {
+            "observation_id": "d5ae8b88fa97",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "d5ae8b88fa97",
+            "camera": "center"
+          },
+          {
+            "observation_id": "d5ae8b88fa97",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "d5ae8b88fa97",
+            "camera": "center"
+          },
+          {
+            "observation_id": "d5ae8b88fa97",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "unknown",
+        "evidence": [],
+        "reason": "Not established in the inspected image pair"
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "d5ae8b88fa97",
+            "camera": "center"
+          },
+          {
+            "observation_id": "d5ae8b88fa97",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "d5ae8b88fa97",
+            "camera": "center"
+          },
+          {
+            "observation_id": "d5ae8b88fa97",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "align",
+        "command": {
+          "op": "nudge",
+          "direction": "forward",
+          "distance": 0.025
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The short horizontal corridor stays above the objects, with no visible obstruction",
+          "evidence": [
+            {
+              "observation_id": "d5ae8b88fa97",
+              "camera": "center"
+            },
+            {
+              "observation_id": "d5ae8b88fa97",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a02": {
+        "intent": "align",
+        "command": {
+          "op": "nudge",
+          "direction": "right",
+          "distance": 0.02
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The current elevated fingers have a clear short lateral corridor",
+          "evidence": [
+            {
+              "observation_id": "d5ae8b88fa97",
+              "camera": "center"
+            },
+            {
+              "observation_id": "d5ae8b88fa97",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a03": {
+        "intent": "close",
+        "command": {
+          "op": "gripper",
+          "closed": true
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "between_fingers",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "between_fingers",
+            "value": "no"
+          }
+        ]
+      }
+    },
+    "audit_note": "The yellow center has a clear rightward image offset. I would correct world +X at the current height; a modest -Y adjustment is also plausible. This choice uses the images and robot feedback, not the hidden layout."
+  }
+}

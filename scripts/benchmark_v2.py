@@ -215,6 +215,17 @@ def score():
             if dest.exists(): raise ValueError("Scoring output already exists; do not overwrite evidence")
             dest.mkdir(parents=True)
             for name in ("scene.xml", "state.npz"): shutil.copyfile(RUN / "cases" / case["id"] / name, dest / name)
+            # Published fixtures preserve original bytes; resolve asset paths only
+            # in the disposable scoring copy when replayed on another machine.
+            tree = ET.parse(dest / "scene.xml")
+            relocated = False
+            for mesh in tree.findall(".//mesh"):
+                name = mesh.get("file", "")
+                if name and not Path(name).exists() and "/assets/" in name:
+                    asset = ROOT / "assets" / name.split("/assets/", 1)[1]
+                    if not asset.exists(): raise FileNotFoundError(asset)
+                    mesh.set("file", str(asset)); relocated = True
+            if relocated: tree.write(dest / "scene.xml")
             sim = RobotSim(dest)
             body = case["body"]
             p0 = sim.data.body(body).xpos.copy(); tcp0 = sim.tcp()
@@ -288,4 +299,6 @@ def analyze():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(); parser.add_argument("mode", choices=["build", "freeze", "run", "score", "analyze"])
-    globals()[parser.parse_args().mode]()
+    parser.add_argument("--run-dir", type=Path, default=RUN)
+    args = parser.parse_args(); RUN = args.run_dir.resolve()
+    globals()[args.mode]()

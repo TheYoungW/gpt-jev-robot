@@ -1,0 +1,80 @@
+{
+  "created_wall_time": 1790134672.1182187,
+  "plan_sha256": "dea785ddf779375dd67ad261280161baf3058051b44a8c846fc09bf95a7a7dee",
+  "model": "jev-1.13.0",
+  "cases": [
+    {
+      "id": "H01",
+      "cluster": "historical",
+      "objective": "recover_open",
+      "body": "gold"
+    },
+    {
+      "id": "H02",
+      "cluster": "historical",
+      "objective": "retained_lift",
+      "body": "gold"
+    },
+    {
+      "id": "H03",
+      "cluster": "historical",
+      "objective": "release_in_tray",
+      "body": "gold"
+    },
+    {
+      "id": "H04",
+      "cluster": "historical",
+      "objective": "retained_lift",
+      "body": "coral"
+    },
+    {
+      "id": "H05",
+      "cluster": "historical",
+      "objective": "retreat",
+      "body": "teal"
+    },
+    {
+      "id": "H06",
+      "cluster": "historical",
+      "objective": "finish",
+      "body": "gold"
+    },
+    {
+      "id": "R01",
+      "cluster": "R01",
+      "objective": "align",
+      "body": "gold"
+    },
+    {
+      "id": "R02",
+      "cluster": "R02",
+      "objective": "align",
+      "body": "gold"
+    },
+    {
+      "id": "R03",
+      "cluster": "R03",
+      "objective": "align",
+      "body": "gold"
+    },
+    {
+      "id": "R04",
+      "cluster": "R04",
+      "objective": "align",
+      "body": "gold"
+    },
+    {
+      "id": "R05",
+      "cluster": "R05",
+      "objective": "align",
+      "body": "gold"
+    },
+    {
+      "id": "R06",
+      "cluster": "R06",
+      "objective": "align",
+      "body": "gold"
+    }
+  ],
+  "setup_sha256": "79a5cc3c4944c202ed431eae401d6b765a3ed62d55760bd29ce123b4d228c359"
+}

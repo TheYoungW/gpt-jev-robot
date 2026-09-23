@@ -1,0 +1,326 @@
+{
+  "case": "H06",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "7b68fa212907",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Yellow rounded block resting toward the rear of the tray",
+        "visibility": "clear"
+      },
+      {
+        "object_id": "object_02",
+        "appearance": "Red block resting near the front-left of the tray",
+        "visibility": "clear"
+      },
+      {
+        "object_id": "object_03",
+        "appearance": "Teal offset block resting on the right of the tray",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "unknown",
+        "evidence": [],
+        "reason": "Not established in the inspected image pair"
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_02",
+        "relation": "inside_tray",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_02",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_02",
+        "relation": "between_fingers",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_03",
+        "relation": "inside_tray",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_03",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_03",
+        "relation": "between_fingers",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "center"
+          },
+          {
+            "observation_id": "7b68fa212907",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "finish",
+        "command": {
+          "op": "finish"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "inside_tray",
+            "value": "yes"
+          },
+          {
+            "relation": "resting_on_surface",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "inside_tray",
+            "value": "no"
+          }
+        ]
+      },
+      "a02": {
+        "intent": "wait",
+        "command": {
+          "op": "wait",
+          "seconds": 0.8
+        },
+        "requires": [
+          {
+            "fact": "object_01.inside_tray",
+            "equals": "yes"
+          }
+        ],
+        "expected_observation": [
+          {
+            "relation": "resting_on_surface",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "resting_on_surface",
+            "value": "no"
+          }
+        ]
+      },
+      "a03": {
+        "intent": "approach",
+        "command": {
+          "op": "move",
+          "position": [
+            0.31,
+            -0.02,
+            0.78
+          ]
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The elevated path back over the tray is visually unobstructed",
+          "evidence": [
+            {
+              "observation_id": "7b68fa212907",
+              "camera": "center"
+            },
+            {
+              "observation_id": "7b68fa212907",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      }
+    },
+    "audit_note": "The center image shows all three objects on the tray floor, with both arms clear. The wrist view shows empty table under the open gripper. I would request completion verification."
+  }
+}

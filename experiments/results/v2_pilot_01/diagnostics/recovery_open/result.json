@@ -1,0 +1,25 @@
+{
+  "scope": "post-hoc diagnostic, excluded from primary scores",
+  "case": "H01",
+  "intervention": "Execute the precommitted Agent C open command directly through muscles, bypassing only the V2 release condition",
+  "command": {
+    "op": "gripper",
+    "closed": false
+  },
+  "result": {
+    "kind": "gripper",
+    "simulation_time": 8.65,
+    "wall_time": 1790135327.1037683,
+    "arm": "l",
+    "closed": false,
+    "contacts": []
+  },
+  "target_displacement_m": 7.657669778496901e-11,
+  "original_progress_criterion_met": true,
+  "images": {
+    "center": "diagnostics/recovery_open/observations/00008.650_diagnostic/center.png",
+    "l_wrist": "diagnostics/recovery_open/observations/00008.650_diagnostic/l_wrist.png",
+    "r_wrist": "diagnostics/recovery_open/observations/00008.650_diagnostic/r_wrist.png",
+    "overview": "diagnostics/recovery_open/observations/00008.650_diagnostic/overview.png"
+  }
+}

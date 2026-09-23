@@ -1,0 +1,224 @@
+{
+  "case": "R01",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "4acfbeec36f4",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Yellow rounded block well above and right of the gripper midpoint in the wrist image; not aligned with the fingers",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "4acfbeec36f4",
+            "camera": "center"
+          },
+          {
+            "observation_id": "4acfbeec36f4",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "4acfbeec36f4",
+            "camera": "center"
+          },
+          {
+            "observation_id": "4acfbeec36f4",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "4acfbeec36f4",
+            "camera": "center"
+          },
+          {
+            "observation_id": "4acfbeec36f4",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "unknown",
+        "evidence": [],
+        "reason": "Not established in the inspected image pair"
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "4acfbeec36f4",
+            "camera": "center"
+          },
+          {
+            "observation_id": "4acfbeec36f4",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "4acfbeec36f4",
+            "camera": "center"
+          },
+          {
+            "observation_id": "4acfbeec36f4",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "align",
+        "command": {
+          "op": "nudge",
+          "direction": "left",
+          "distance": 0.04
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The open gripper is well above the objects and this short horizontal corridor is clear",
+          "evidence": [
+            {
+              "observation_id": "4acfbeec36f4",
+              "camera": "center"
+            },
+            {
+              "observation_id": "4acfbeec36f4",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a02": {
+        "intent": "align",
+        "command": {
+          "op": "nudge",
+          "direction": "forward",
+          "distance": 0.03
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "There is clear elevated space for this small horizontal displacement",
+          "evidence": [
+            {
+              "observation_id": "4acfbeec36f4",
+              "camera": "center"
+            },
+            {
+              "observation_id": "4acfbeec36f4",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a03": {
+        "intent": "close",
+        "command": {
+          "op": "gripper",
+          "closed": true
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "between_fingers",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "between_fingers",
+            "value": "no"
+          }
+        ]
+      }
+    },
+    "audit_note": "The randomly placed yellow object is far toward the upper-right of the wrist image. Based on the known wrist orientation, I would correct world +Y first; +X is another plausible alignment correction. I have not read layout coordinates."
+  }
+}

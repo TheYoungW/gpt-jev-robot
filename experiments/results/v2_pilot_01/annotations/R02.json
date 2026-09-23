@@ -1,0 +1,224 @@
+{
+  "case": "R02",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "9d8be7066e16",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Yellow rounded block far above and slightly left of the open finger midpoint in the wrist view",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "9d8be7066e16",
+            "camera": "center"
+          },
+          {
+            "observation_id": "9d8be7066e16",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "9d8be7066e16",
+            "camera": "center"
+          },
+          {
+            "observation_id": "9d8be7066e16",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "9d8be7066e16",
+            "camera": "center"
+          },
+          {
+            "observation_id": "9d8be7066e16",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "unknown",
+        "evidence": [],
+        "reason": "Not established in the inspected image pair"
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "9d8be7066e16",
+            "camera": "center"
+          },
+          {
+            "observation_id": "9d8be7066e16",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "9d8be7066e16",
+            "camera": "center"
+          },
+          {
+            "observation_id": "9d8be7066e16",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "align",
+        "command": {
+          "op": "nudge",
+          "direction": "left",
+          "distance": 0.04
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The central view shows the fingers elevated above the tabletop objects along this short corridor",
+          "evidence": [
+            {
+              "observation_id": "9d8be7066e16",
+              "camera": "center"
+            },
+            {
+              "observation_id": "9d8be7066e16",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a02": {
+        "intent": "align",
+        "command": {
+          "op": "nudge",
+          "direction": "back",
+          "distance": 0.015
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "A short horizontal move at the present height has no visible obstacle",
+          "evidence": [
+            {
+              "observation_id": "9d8be7066e16",
+              "camera": "center"
+            },
+            {
+              "observation_id": "9d8be7066e16",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a03": {
+        "intent": "close",
+        "command": {
+          "op": "gripper",
+          "closed": true
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "between_fingers",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "between_fingers",
+            "value": "no"
+          }
+        ]
+      }
+    },
+    "audit_note": "The dominant visible error is along the wrist image vertical direction, with a smaller leftward offset. I would correct world +Y before making a smaller -X adjustment. No object coordinates were read."
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "case": "H02",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "b0860e3fdf88",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [
+      {
+        "observation_id": "d87c6cb40802",
+        "camera": "l_wrist"
+      }
+    ],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Yellow rounded-lobe block held between the left fingers above the table",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "center"
+          },
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "center"
+          },
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "center"
+          },
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "center"
+          },
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "l_wrist"
+          },
+          {
+            "observation_id": "d87c6cb40802",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "center"
+          },
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "center"
+          },
+          {
+            "observation_id": "b0860e3fdf88",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "test_lift",
+        "command": {
+          "op": "nudge",
+          "direction": "up",
+          "distance": 0.04
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "moves_with_gripper",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "moves_with_gripper",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The central view shows clear space above the held target",
+          "evidence": [
+            {
+              "observation_id": "b0860e3fdf88",
+              "camera": "center"
+            },
+            {
+              "observation_id": "b0860e3fdf88",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a02": {
+        "intent": "transport",
+        "command": {
+          "op": "move",
+          "position": [
+            0.295,
+            -0.025,
+            0.76
+          ]
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "inside_tray",
+            "value": "yes"
+          },
+          {
+            "relation": "moves_with_gripper",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "moves_with_gripper",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The path rises toward the open central portion of the tray and avoids the two other tabletop objects",
+          "evidence": [
+            {
+              "observation_id": "b0860e3fdf88",
+              "camera": "center"
+            },
+            {
+              "observation_id": "b0860e3fdf88",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a03": {
+        "intent": "release",
+        "command": {
+          "op": "gripper",
+          "closed": false
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "resting_on_surface",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      }
+    },
+    "audit_note": "The yellow body retains its size and position between the pads across the vertical lift; the background changes and both pad contacts persist. I would raise vertically for clearance before transporting."
+  }
+}

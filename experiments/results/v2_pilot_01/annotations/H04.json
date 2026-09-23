@@ -1,0 +1,227 @@
+{
+  "case": "H04",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "77d3cfb05694",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [
+      {
+        "observation_id": "8b23567bf39f",
+        "camera": "l_wrist"
+      }
+    ],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Red block with a rounded end enclosed by the left fingers at table level",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "77d3cfb05694",
+            "camera": "center"
+          },
+          {
+            "observation_id": "77d3cfb05694",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "77d3cfb05694",
+            "camera": "center"
+          },
+          {
+            "observation_id": "77d3cfb05694",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "77d3cfb05694",
+            "camera": "center"
+          },
+          {
+            "observation_id": "77d3cfb05694",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "unknown",
+        "evidence": [],
+        "reason": "The inspected pair covers closing only, with no TCP lift yet"
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "77d3cfb05694",
+            "camera": "center"
+          },
+          {
+            "observation_id": "77d3cfb05694",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "77d3cfb05694",
+            "camera": "center"
+          },
+          {
+            "observation_id": "77d3cfb05694",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "test_lift",
+        "command": {
+          "op": "nudge",
+          "direction": "up",
+          "distance": 0.04
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "moves_with_gripper",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "moves_with_gripper",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The central view shows an unobstructed vertical lift above the red object",
+          "evidence": [
+            {
+              "observation_id": "77d3cfb05694",
+              "camera": "center"
+            },
+            {
+              "observation_id": "77d3cfb05694",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a02": {
+        "intent": "transport",
+        "command": {
+          "op": "move",
+          "position": [
+            0.395,
+            0.045,
+            0.76
+          ]
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "inside_tray",
+            "value": "yes"
+          },
+          {
+            "relation": "moves_with_gripper",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "moves_with_gripper",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "unknown",
+          "reason": "Retention and clearance across the nearby tray rim are not yet established",
+          "evidence": []
+        }
+      },
+      "a03": {
+        "intent": "release",
+        "command": {
+          "op": "gripper",
+          "closed": false
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "between_fingers",
+            "value": "no"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "between_fingers",
+            "value": "yes"
+          }
+        ]
+      }
+    },
+    "audit_note": "Closing brought both pads against the red body. The object is still at table height and has not been tested under lifting. I would make a short vertical lift before lateral transport."
+  }
+}

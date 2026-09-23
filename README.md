@@ -6,6 +6,8 @@
 
 ## 演示
 
+**实证结果：** [V2 首轮对照报告](experiments/results/v2_pilot_01/REPORT.md)包含 12 个状态和 72 次真实 Jev 调用。文本/结构化两组单步物理进展率都是 13.9%，本轮没有证明动作效果提升；输入 token 相对本试验文本基线减少 36.4%。报告同时公开失败、协议缺陷、随机布局和复现方法。
+
 V2 的真实接口检查见 [examples/protocol_v2](examples/protocol_v2/run_notes.md)：Agent 填写结构化观测，Jev 返回重新观察，未执行抓取。这个记录用于核查新协议接线，不作为性能提升证据。
 
 当前会话逐步看图操作的完整结果见 [examples/live_visual](examples/live_visual/)，包含抓取前后图片、约 4 倍速视频、39 次真实 Jev 决策、逐步视觉判断和独立验收报告。三个物体最终都落稳在盘内；黄色首次试提失败后重抓，黄色和红色运输/下降时曾滑落入盘，青色保持夹持至主动松爪。详见[实验记录与局限](examples/live_visual/run_notes.md)。这是一轮流程验证，不代表稳定抓取成功率。

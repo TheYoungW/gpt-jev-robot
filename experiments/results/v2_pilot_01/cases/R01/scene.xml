@@ -1,0 +1,228 @@
+<mujoco model="yunyi_v1_0">
+  <compiler angle="radian" />
+  <asset>
+    <mesh name="base_link" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/base_link.STL" />
+    <mesh name="l_base_link" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/l_base_link.STL" />
+    <mesh name="l_link1" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/l_link1.STL" />
+    <mesh name="l_link2" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/l_link2.STL" />
+    <mesh name="l_link3" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/l_link3.STL" />
+    <mesh name="l_link4" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/l_link4.STL" />
+    <mesh name="l_link5" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/l_link5.STL" />
+    <mesh name="l_link6" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/l_link6.STL" />
+    <mesh name="l_link7" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/l_link7.STL" />
+    <mesh name="l_tool_link1" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/l_tool_link1.STL" />
+    <mesh name="l_tool_link2" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/l_tool_link2.STL" />
+    <mesh name="r_base_link" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/r_base_link.STL" />
+    <mesh name="r_link1" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/r_link1.STL" />
+    <mesh name="r_link2" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/r_link2.STL" />
+    <mesh name="r_link3" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/r_link3.STL" />
+    <mesh name="r_link4" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/r_link4.STL" />
+    <mesh name="r_link5" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/r_link5.STL" />
+    <mesh name="r_link6" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/r_link6.STL" />
+    <mesh name="r_link7" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/r_link7.STL" />
+    <mesh name="r_tool_link1" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/r_tool_link1.STL" />
+    <mesh name="r_tool_link2" file="/home/ubuntu/gpt-jev/assets/robot/meshes/bessica_M1.3/r_tool_link2.STL" />
+    <texture name="floor_tex" type="2d" builtin="checker" rgb1="0.18 0.22 0.27" rgb2="0.22 0.26 0.31" width="256" height="256" />
+    <material name="floor_mat" texture="floor_tex" texrepeat="3 3" reflectance="0.1" />
+  </asset>
+  <worldbody>
+    <body name="base_link">
+      <inertial pos="0.000999999 -1.8355e-09 0.146364" mass="3.56107" diaginertia="0.133997 0.127853 0.0999783" />
+      <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" density="0" mesh="base_link" />
+      <geom type="mesh" rgba="1 1 1 1" mesh="base_link" group="3" />
+      <body name="l-base-link" pos="0.00105 0.0446731 1.01543" gravcomp="1">
+        <inertial pos="-1.95622e-05 0.0255463 0.0061601" quat="0.560947 0.430489 0.560895 0.430598" mass="0.646746" diaginertia="0.000704038 0.000436175 0.000402983" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="l_base_link" />
+        <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="l_base_link" group="3" />
+        <body name="l-link1" pos="0 0.059598 0.015969" gravcomp="1">
+          <inertial pos="0.0022336 0.054301 0.0145263" quat="0.999444 -0.0333524 -0.000444295 0.000268664" mass="0.486098" diaginertia="0.000518892 0.000343244 0.000319394" />
+          <joint name="l-joint1" range="-2.745 2.745" actuatorfrcrange="-40 40" axis="0 0.965926 0.258819" damping="4" armature=".04" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="l_link1" />
+          <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="l_link1" group="3" />
+          <body name="l-link2" pos="-5e-05 0.06549 0.017548" gravcomp="1">
+            <inertial pos="0.011293 0.00810561 -0.0751612" quat="0.632811 0.773794 0.000930292 0.0281703" mass="0.607836" diaginertia="0.000263322 0.000256792 0.000239564" />
+            <joint name="l-joint2" range="-0.3489 2.2678" actuatorfrcrange="-40 40" axis="1 0 0" damping="4" armature=".04" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="l_link2" />
+            <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="l_link2" group="3" />
+            <body name="l-link3" pos="0.0043414 0.008 -0.1195" gravcomp="1">
+              <inertial pos="0.00593848 -0.00106127 -0.109907" quat="0.709918 0.0192142 0.0223492 0.703668" mass="0.579437" diaginertia="0.000466846 0.000421928 0.000196628" />
+              <joint name="l-joint3" range="-2.5294 2.5294" actuatorfrcrange="-27 27" axis="0 0 -1" damping="4" armature=".04" />
+              <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="l_link3" />
+              <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="l_link3" group="3" />
+              <body name="l-link4" pos="0.0082 0 -0.13375" gravcomp="1">
+                <inertial pos="-0.00610255 -0.00201934 -0.0331849" quat="0.719331 -0.0574666 -0.0692841 0.688811" mass="0.112953" diaginertia="5.77027e-05 5.23523e-05 1.89701e-05" />
+                <joint name="l-joint4" range="-0.1744 2.2678" actuatorfrcrange="-27 27" axis="0 -1 0" damping="4" armature=".04" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="l_link4" />
+                <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="l_link4" group="3" />
+                <body name="l-link5" pos="-0.0082 0.000875 -0.064" gravcomp="1">
+                  <inertial pos="-4.08631e-05 -0.000608152 -0.0595684" quat="0.710092 -0.0055598 -0.00359269 0.704078" mass="0.70737" diaginertia="0.000324027 0.000281247 0.000235334" />
+                  <joint name="l-joint5" range="-2.0933 2.0933" actuatorfrcrange="-7 7" damping="4" armature=".04" />
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.890196 0.890196 0.913725 1" density="0" mesh="l_link5" />
+                  <geom type="mesh" rgba="0.890196 0.890196 0.913725 1" mesh="l_link5" group="3" />
+                  <body name="l-link6" pos="0 0 -0.155" gravcomp="1">
+                    <inertial pos="-0.00124021 0.00010203 2.17965e-07" quat="0.706451 0.707762 -5.50524e-05 -8.44295e-05" mass="0.320901" diaginertia="0.000138345 0.000106843 9.30209e-05" />
+                    <joint name="l-joint6" range="-0.785 0.785" actuatorfrcrange="-7 7" axis="0 -1 0" damping="4" armature=".04" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="l_link6" />
+                    <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="l_link6" group="3" />
+                    <body name="l-link7" gravcomp="1">
+                      <inertial pos="-0.000139431 1.25864e-07 -0.0729974" quat="0.499794 0.496998 -0.502976 0.500214" mass="0.393429" diaginertia="0.000215659 0.000183225 0.000109887" />
+                      <joint name="l-joint7" range="-1.3956 1.3956" actuatorfrcrange="-7 7" axis="1 0 0" damping="4" armature=".04" />
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="l_link7" />
+                      <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="l_link7" group="3" />
+                      <body name="l-link8" pos="-0.0023828 -0.40777 -0.18025" gravcomp="1">
+                        <inertial pos="0.000382814 0.346003 0.0449198" quat="0.695167 -0.129403 0.129412 0.695162" mass="0.029081" diaginertia="8.79158e-06 6.73189e-06 4.95048e-06" />
+                        <joint name="l-joint8" type="slide" range="-0.05 0" actuatorfrcrange="-5 5" axis="0 -1 0" damping="2" armature=".005" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" density="0" mesh="l_tool_link1" />
+                        <geom type="mesh" rgba="1 1 1 1" mesh="l_tool_link1" group="3" contype="0" conaffinity="0" />
+                        <geom name="l_pad8" type="box" pos=".000383 0.352 .026" size=".021 .005 .025" mass="0" rgba=".12 .15 .19 1" friction="3 .05 .005" condim="4" solref=".006 1" />
+                      </body>
+                      <body name="l-link9" pos="-0.0023828 -0.30677 -0.18025" gravcomp="1">
+                        <inertial pos="0.000382786 0.368539 0.0449198" quat="0.695167 0.129403 -0.129412 0.695162" mass="0.029081" diaginertia="8.79158e-06 6.73189e-06 4.95048e-06" />
+                        <joint name="l-joint9" type="slide" range="0 0.05" actuatorfrcrange="-5 5" axis="0 -1 0" damping="2" armature=".005" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" density="0" mesh="l_tool_link2" />
+                        <geom type="mesh" rgba="1 1 1 1" mesh="l_tool_link2" group="3" contype="0" conaffinity="0" />
+                        <geom name="l_pad9" type="box" pos=".000383 0.3625 .026" size=".021 .005 .025" mass="0" rgba=".12 .15 .19 1" friction="3 .05 .005" condim="4" solref=".006 1" />
+                      </body>
+                      <body name="l-tool0" pos="-0.0023828 -0.35727 -0.18025" />
+                      <site name="l_tcp" pos="-.002 0 -.155" size=".004" rgba="0 1 0 .6" />
+                      <camera name="l_wrist" pos=".055 0 -.085" xyaxes="0 -1 0 1 0 0" fovy="72" />
+                      <geom type="box" pos=".055 0 -.075" size=".022 .019 .012" rgba=".09 .12 .16 1" contype="0" conaffinity="0" mass="0" />
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="r-base-link" pos="0.00105 -0.0446731 1.01543" gravcomp="1">
+        <inertial pos="1.95622e-05 -0.0255463 0.0061601" quat="0.430489 0.560947 0.430598 0.560895" mass="0.646746" diaginertia="0.000704038 0.000436175 0.000402983" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="r_base_link" />
+        <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="r_base_link" group="3" />
+        <body name="r-link1" pos="0 -0.0595976 0.0159691" gravcomp="1">
+          <inertial pos="0.000680313 -0.0534825 0.0142445" quat="0.998692 -0.0510567 -0.00023774 0.00274407" mass="0.548482" diaginertia="0.000620368 0.000389286 0.00037541" />
+          <joint name="r-joint1" range="-2.745 2.745" actuatorfrcrange="-40 40" axis="0 0.965926 -0.258819" damping="4" armature=".04" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="r_link1" />
+          <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="r_link1" group="3" />
+          <body name="r-link2" pos="-5e-05 -0.0654898 0.0175479" gravcomp="1">
+            <inertial pos="0.0109102 -0.00823945 -0.0751613" quat="0.76761 0.640236 -0.0294587 -0.00196632" mass="0.607836" diaginertia="0.000263328 0.00025666 0.000239689" />
+            <joint name="r-joint2" range="-2.2678 0.3489" actuatorfrcrange="-40 40" axis="1 0 0" damping="4" armature=".04" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="r_link2" />
+            <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="r_link2" group="3" />
+            <body name="r-link3" pos="0.0039586 -0.008 -0.1195" gravcomp="1">
+              <inertial pos="0.00593606 0.00110447 -0.110341" quat="0.70379 0.0234987 0.0201855 0.709733" mass="0.578562" diaginertia="0.000462244 0.000417628 0.000196313" />
+              <joint name="r-joint3" range="-2.5294 2.5294" actuatorfrcrange="-27 27" axis="0 0 -1" damping="4" armature=".04" />
+              <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="r_link3" />
+              <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="r_link3" group="3" />
+              <body name="r-link4" pos="0.0082 0 -0.134" gravcomp="1">
+                <inertial pos="-0.00610255 0.00202089 -0.0331849" quat="0.68881 -0.0692844 -0.0574659 0.719331" mass="0.112953" diaginertia="5.77029e-05 5.23525e-05 1.89701e-05" />
+                <joint name="r-joint4" range="-0.1744 2.2678" actuatorfrcrange="-27 27" axis="0 -1 0" damping="4" armature=".04" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="r_link4" />
+                <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="r_link4" group="3" />
+                <body name="r-link5" pos="-0.0082 -0.000875 -0.064" gravcomp="1">
+                  <inertial pos="-0.000158843 0.000493615 -0.0595602" quat="0.70678 -0.00304729 -0.00691443 0.707393" mass="0.707309" diaginertia="0.00032384 0.000281059 0.000235324" />
+                  <joint name="r-joint5" range="-2.0933 2.0933" actuatorfrcrange="-7 7" damping="4" armature=".04" />
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.890196 0.890196 0.913725 1" density="0" mesh="r_link5" />
+                  <geom type="mesh" rgba="0.890196 0.890196 0.913725 1" mesh="r_link5" group="3" />
+                  <body name="r-link6" pos="0 0 -0.155" gravcomp="1">
+                    <inertial pos="-0.00124384 0.000161939 1.39824e-06" quat="0.706611 0.707596 -0.00213685 -0.00218861" mass="0.320941" diaginertia="0.000138386 0.000106888 9.30237e-05" />
+                    <joint name="r-joint6" range="-0.785 0.785" actuatorfrcrange="-7 7" axis="0 -1 0" damping="4" armature=".04" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="r_link6" />
+                    <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="r_link6" group="3" />
+                    <body name="r-link7" gravcomp="1">
+                      <inertial pos="-0.000139431 1.25864e-07 -0.0729974" quat="0.499794 0.496998 -0.502976 0.500214" mass="0.393429" diaginertia="0.000215659 0.000183225 0.000109887" />
+                      <joint name="r-joint7" range="-1.3956 1.3956" actuatorfrcrange="-7 7" axis="1 0 0" damping="4" armature=".04" />
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.898039 0.917647 0.929412 1" density="0" mesh="r_link7" />
+                      <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="r_link7" group="3" />
+                      <body name="r-link8" pos="-0.0016172 0.30677 -0.17975" gravcomp="1">
+                        <inertial pos="-0.000382786 -0.368539 0.0444198" quat="0.695167 -0.129403 0.129412 0.695162" mass="0.029081" diaginertia="8.79158e-06 6.73189e-06 4.95048e-06" />
+                        <joint name="r-joint8" type="slide" range="-0.05 0" actuatorfrcrange="-5 5" axis="0 -1 0" damping="2" armature=".005" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" density="0" mesh="r_tool_link1" />
+                        <geom type="mesh" rgba="1 1 1 1" mesh="r_tool_link1" group="3" contype="0" conaffinity="0" />
+                        <geom name="r_pad8" type="box" pos=".000383 -0.352 .026" size=".021 .005 .025" mass="0" rgba=".12 .15 .19 1" friction="3 .05 .005" condim="4" solref=".006 1" />
+                      </body>
+                      <body name="r-link9" pos="-0.0016172 0.40777 -0.17975" gravcomp="1">
+                        <inertial pos="-0.000382814 -0.346003 0.0444198" quat="0.695167 0.129403 -0.129412 0.695162" mass="0.029081" diaginertia="8.79158e-06 6.73189e-06 4.95048e-06" />
+                        <joint name="r-joint9" type="slide" range="0 0.05" actuatorfrcrange="-5 5" axis="0 -1 0" damping="2" armature=".005" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" density="0" mesh="r_tool_link2" />
+                        <geom type="mesh" rgba="1 1 1 1" mesh="r_tool_link2" group="3" contype="0" conaffinity="0" />
+                        <geom name="r_pad9" type="box" pos=".000383 -0.3625 .026" size=".021 .005 .025" mass="0" rgba=".12 .15 .19 1" friction="3 .05 .005" condim="4" solref=".006 1" />
+                      </body>
+                      <body name="r-tool0" pos="-0.0016172 0.35727 -0.17975" />
+                      <site name="r_tcp" pos="-.002 0 -.155" size=".004" rgba="0 1 0 .6" />
+                      <camera name="r_wrist" pos=".055 0 -.085" xyaxes="0 -1 0 1 0 0" fovy="72" />
+                      <geom type="box" pos=".055 0 -.075" size=".022 .019 .012" rgba=".09 .12 .16 1" contype="0" conaffinity="0" mass="0" />
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <light pos="0.3 -0.3 2.8" dir="0 0 -1" diffuse="0.55 0.55 0.55" specular="0 0 0" castshadow="true" />
+    <geom name="floor" type="plane" size="3 3 .05" material="floor_mat" />
+    <geom name="table" type="box" pos="0.51 0 .59" size=".33 .43 .03" rgba=".69 .53 .36 1" friction="1 .01 .001" />
+    <geom type="box" pos="0.3 -0.37 .28" size=".025 .025 .28" rgba=".19 .23 .28 1" />
+    <geom type="box" pos="0.3 0.37 .28" size=".025 .025 .28" rgba=".19 .23 .28 1" />
+    <geom type="box" pos="0.81 -0.37 .28" size=".025 .025 .28" rgba=".19 .23 .28 1" />
+    <geom type="box" pos="0.81 0.37 .28" size=".025 .025 .28" rgba=".19 .23 .28 1" />
+    <body name="tray" pos="0.35 -0.035 0.636">
+      <geom name="tray_floor" type="box" size=".145 .12 .008" rgba=".9 .94 .97 1" friction="1 .01 .001" />
+      <geom type="box" pos=".15 0 .025" size=".008 .128 .025" rgba=".82 .88 .94 1" />
+      <geom type="box" pos="-.15 0 .025" size=".008 .128 .025" rgba=".82 .88 .94 1" />
+      <geom type="box" pos="0 .125 .025" size=".15 .008 .025" rgba=".82 .88 .94 1" />
+      <geom type="box" pos="0 -.125 .025" size=".15 .008 .025" rgba=".82 .88 .94 1" />
+    </body>
+    <body name="coral" pos="0.34231008470487945 0.23375298506647735 .65" quat="0.9997991141097715 0 0 0.020043238892856464">
+      <freejoint name="coral_free" />
+      <geom name="coral_core" type="box" size=".022 .018 .018" mass=".035" rgba=".92 .28 .22 1" friction="2 .02 .002" condim="4" />
+      <geom name="coral_lobe" type="ellipsoid" pos=".024 .006 0" size=".02 .014 .015" mass=".01" rgba=".92 .28 .22 1" friction="2 .02 .002" condim="4" />
+    </body>
+    <body name="teal" pos="0.27845143559040536 0.16117224738889652 .65" quat="0.9813115849392074 0 0 -0.19242550055567148">
+      <freejoint name="teal_free" />
+      <geom name="teal_core" type="box" size=".022 .018 .018" mass=".035" rgba=".05 .61 .61 1" friction="2 .02 .002" condim="4" />
+      <geom name="teal_lobe" type="box" pos="-.023 .011 -.002" size=".016 .013 .016" mass=".01" rgba=".05 .61 .61 1" friction="2 .02 .002" condim="4" />
+    </body>
+    <body name="gold" pos="0.38082075367835433 0.30574255970603453 .65" quat="0.9881029495122702 0 0 0.1537938918330373">
+      <freejoint name="gold_free" />
+      <geom name="gold_core" type="box" size=".022 .018 .018" mass=".035" rgba=".96 .67 .12 1" friction="2 .02 .002" condim="4" />
+      <geom name="gold_lobe" type="capsule" fromto="-.026 0 0 .027 0 0" size=".012" mass=".01" rgba=".96 .67 .12 1" friction="2 .02 .002" condim="4" />
+    </body>
+    <camera name="center" pos="0.8 0 1.55" xyaxes="0.1351132047333135 0.990830168044299 -0.0 -0.8904614749281157 0.12142656476292486 0.43855894819136965" fovy="58" />
+    <camera name="overview" pos="1.6 -1.55 1.5" xyaxes="0.7540815958863059 0.6567807448042019 -0.0 -0.23301755750980005 0.26753867714088153 0.934946990008457" fovy="48" />
+  </worldbody>
+  <option timestep="0.002" integrator="implicitfast" cone="elliptic" iterations="80" />
+  <visual>
+    <global offwidth="1280" offheight="960" />
+    <quality shadowsize="2048" />
+    <headlight ambient="0.2 0.2 0.2" diffuse="0.3 0.3 0.3" specular="0 0 0" />
+  </visual>
+  <actuator>
+    <position name="l-joint1" joint="l-joint1" kp="1600" kv="70" ctrlrange="-2.745 2.745" forcerange="-100 100" />
+    <position name="l-joint2" joint="l-joint2" kp="1600" kv="70" ctrlrange="-0.3489 2.2678" forcerange="-100 100" />
+    <position name="l-joint3" joint="l-joint3" kp="1600" kv="70" ctrlrange="-2.5294 2.5294" forcerange="-100 100" />
+    <position name="l-joint4" joint="l-joint4" kp="1600" kv="70" ctrlrange="-0.1744 2.2678" forcerange="-100 100" />
+    <position name="l-joint5" joint="l-joint5" kp="1600" kv="70" ctrlrange="-2.0933 2.0933" forcerange="-100 100" />
+    <position name="l-joint6" joint="l-joint6" kp="1600" kv="70" ctrlrange="-0.785 0.785" forcerange="-100 100" />
+    <position name="l-joint7" joint="l-joint7" kp="1600" kv="70" ctrlrange="-1.3956 1.3956" forcerange="-100 100" />
+    <position name="l-joint8" joint="l-joint8" kp="350" kv="8" ctrlrange="-0.05 0" forcerange="-15 15" />
+    <position name="l-joint9" joint="l-joint9" kp="350" kv="8" ctrlrange="0 0.05" forcerange="-15 15" />
+    <position name="r-joint1" joint="r-joint1" kp="1600" kv="70" ctrlrange="-2.745 2.745" forcerange="-100 100" />
+    <position name="r-joint2" joint="r-joint2" kp="1600" kv="70" ctrlrange="-2.2678 0.3489" forcerange="-100 100" />
+    <position name="r-joint3" joint="r-joint3" kp="1600" kv="70" ctrlrange="-2.5294 2.5294" forcerange="-100 100" />
+    <position name="r-joint4" joint="r-joint4" kp="1600" kv="70" ctrlrange="-0.1744 2.2678" forcerange="-100 100" />
+    <position name="r-joint5" joint="r-joint5" kp="1600" kv="70" ctrlrange="-2.0933 2.0933" forcerange="-100 100" />
+    <position name="r-joint6" joint="r-joint6" kp="1600" kv="70" ctrlrange="-0.785 0.785" forcerange="-100 100" />
+    <position name="r-joint7" joint="r-joint7" kp="1600" kv="70" ctrlrange="-1.3956 1.3956" forcerange="-100 100" />
+    <position name="r-joint8" joint="r-joint8" kp="350" kv="8" ctrlrange="-0.05 0" forcerange="-15 15" />
+    <position name="r-joint9" joint="r-joint9" kp="350" kv="8" ctrlrange="0 0.05" forcerange="-15 15" />
+  </actuator>
+  <contact>
+    <exclude body1="l-base-link" body2="l-link1" />
+    <exclude body1="l-link5" body2="l-link7" />
+    <exclude body1="r-base-link" body2="r-link1" />
+    <exclude body1="r-link5" body2="r-link7" />
+  </contact>
+</mujoco>

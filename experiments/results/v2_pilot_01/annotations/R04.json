@@ -1,0 +1,224 @@
+{
+  "case": "R04",
+  "agent_choice": "a01",
+  "proposal": {
+    "schema_version": "2.0",
+    "observation_id": "2bf31a94e53d",
+    "viewed_cameras": [
+      "center",
+      "l_wrist"
+    ],
+    "compared_images": [],
+    "target_id": "object_01",
+    "working_arm": "l",
+    "objects": [
+      {
+        "object_id": "object_01",
+        "appearance": "Yellow rounded block well above and approximately centered horizontally relative to the open fingers in the wrist image",
+        "visibility": "clear"
+      }
+    ],
+    "visual_facts": [
+      {
+        "subject": "object_01",
+        "relation": "visible",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "2bf31a94e53d",
+            "camera": "center"
+          },
+          {
+            "observation_id": "2bf31a94e53d",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "between_fingers",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "2bf31a94e53d",
+            "camera": "center"
+          },
+          {
+            "observation_id": "2bf31a94e53d",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "finger_side_overlap",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "2bf31a94e53d",
+            "camera": "center"
+          },
+          {
+            "observation_id": "2bf31a94e53d",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "moves_with_gripper",
+        "value": "unknown",
+        "evidence": [],
+        "reason": "Not established in the inspected image pair"
+      },
+      {
+        "subject": "object_01",
+        "relation": "inside_tray",
+        "value": "no",
+        "evidence": [
+          {
+            "observation_id": "2bf31a94e53d",
+            "camera": "center"
+          },
+          {
+            "observation_id": "2bf31a94e53d",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      },
+      {
+        "subject": "object_01",
+        "relation": "resting_on_surface",
+        "value": "yes",
+        "evidence": [
+          {
+            "observation_id": "2bf31a94e53d",
+            "camera": "center"
+          },
+          {
+            "observation_id": "2bf31a94e53d",
+            "camera": "l_wrist"
+          }
+        ],
+        "reason": ""
+      }
+    ],
+    "candidates": {
+      "observe": {
+        "intent": "observe",
+        "command": {
+          "op": "observe",
+          "label": "recheck"
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ]
+      },
+      "a01": {
+        "intent": "align",
+        "command": {
+          "op": "nudge",
+          "direction": "left",
+          "distance": 0.04
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The central view shows unobstructed space for this short elevated horizontal move",
+          "evidence": [
+            {
+              "observation_id": "2bf31a94e53d",
+              "camera": "center"
+            },
+            {
+              "observation_id": "2bf31a94e53d",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a02": {
+        "intent": "retreat",
+        "command": {
+          "op": "nudge",
+          "direction": "up",
+          "distance": 0.03
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "visible",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "visible",
+            "value": "no"
+          }
+        ],
+        "clearance": {
+          "value": "yes",
+          "reason": "The vertical space above the current open gripper is clear",
+          "evidence": [
+            {
+              "observation_id": "2bf31a94e53d",
+              "camera": "center"
+            },
+            {
+              "observation_id": "2bf31a94e53d",
+              "camera": "l_wrist"
+            }
+          ]
+        }
+      },
+      "a03": {
+        "intent": "close",
+        "command": {
+          "op": "gripper",
+          "closed": true
+        },
+        "requires": [],
+        "expected_observation": [
+          {
+            "relation": "between_fingers",
+            "value": "yes"
+          }
+        ],
+        "failure_signals": [
+          {
+            "relation": "between_fingers",
+            "value": "no"
+          }
+        ]
+      }
+    },
+    "audit_note": "The dominant offset is along wrist image vertical direction while horizontal alignment is approximately centered. I would move world +Y; raising for another view is safe but does not directly reduce the visible lateral separation."
+  }
+}
